@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Commands
  * Pokemon Showdown - http://pokemonshowdown.com/
  *
@@ -926,6 +926,406 @@ var commands = exports.commands = {
 		}
 	},
 
+	about: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		target = target.toLowerCase();
+		var matched = false;
+		if (target === ''){
+			matched = true;
+			this.sendReplyBox('About this league/server:<br /><br />' +
+			'- This server is hosted by <b>Marcuz</b><br />' +
+			'- Server developed/maintained by <b>Cosy</b><br /><br />' +
+			'The league has four distinct areas which are listed below:<br />' +
+			'- <b>Elite Four</b> - Made up of four members and the Champion. (Type /about elitefour for further information)<br />' +
+			'- <b>Professors</b> - Made up of several members who collectively help over different types and areas. (Type /about professors for further information)<br />' +
+			'- <b>Battle Frontier</b> - Made up of five members. (Type /about frontier for further information)<br />' +
+			'- <b>Gym Leaders</b> - A Gym Leader for each type, with their own rules and trainers. (Type /about gymleaders for further infromation)');
+		}
+		//OTHER ABOUT PAGES
+		if (target === 'elitefour'){
+			matched = true;
+			this.sendReplyBox('Phoenix League Elite Four and Champion:<br /><br />' +
+			'- Champion® <font color="purple"><b>Lynn</b></font color>: "The Cool Yet Elegant Psychic Master"<br />' +
+			'- Elite Fou® <font color="green"><b>Emerald</b></font color>: "The Swift Flying Master"<br />' +
+			'- Elite Fou® <font color="gray"><b>Titan</b></font color>: "The Majestic Dragon"<br />' +
+			'- Elite Fou® <font color="brown"><b>Caste®</b></font color>: "The Only Unturned Stone"<br />' +
+			'- Elite Fou® <font color="purple"><b>Dvetts</b></font color><br /><br />' +
+			'You can view further information about the above using the /about <name> command such as /about lynn');
+		}
+		if (target === 'professors') {
+			matched = true;
+			this.sendReplyBox('Phoenix League Professors:<br /><br />' +
+			'- Professo® Canyon<br />' +
+			'- Pr☯fesso®AuraBurst<br />' +
+			'- Professo® LilyR.<br />' +
+			'- Professo® NobleSky<br /><br />' +
+			'You can view further information about the above using the /about <name> command such as /about Canyon');
+		}
+		if (target === 'frontier'){
+			matched = true;
+			this.sendReplyBox('Phoenix League Battle Frontier:<br /><br />' +
+			'- Battle Frontie® <font color="blue"><b>Yellow</b></font color>: "Dome Ace"<br />' +
+			'- Battle Frontie® <font color="red"><b>Cats</b></font color>: "Palace Master"<br />' +
+			'- Battle Frontie® <font color="purple"><b>Balto</b></font color>: "Tower Tycoon"<br />' +
+			'- Battle Frontie® <font color="green"><b>Maxwel</b></font color>: "Factory Head"<br />' +
+			'- Battle Frontie® <font color="orange"><b>Sonic7</b></font color>: "Hall Master"<br /><br />' +
+			'You can view further information about the above using the /about <name> command such as /about Cat');
+		}
+		if (target === 'gymleaders'){
+			matched = true;
+			this.sendReplyBox('Phoenix League Gym Leaders:<br /><br />' +
+			'- Gym Leade® <font color="gray"><b>Dusk</b></font color><br />' +
+			'- Gym Leade® <font color="gray"><b>Kaos</b></font color><br />' +
+			'- Gym Leade® <font color="green"><b>Tenor</b></font color><br />' +
+			'- Gym Leade® <font color="green"><b>Slayer</b></font color>: ""Sash Master""<br />' +
+			'- Gym Leade® <font color="gray"><b>Cadfäl</b></font color><br />' +
+			'- Gym Leade® <font color="gray"><b>JZB</b></font color><br />' +
+			'- Gym Leade® <font color="purple"><b>Kuhb</b></font color><br />' +
+			'- Gym Leade® <font color="brown"><b>Darny</b></font color><br />' +
+			'- Gym Leade® <font color="yellow"><b>Kolotos</b></font color>: "The trainer charged with the Aura of Power"<br />' +
+			'- Gym Leade® <font color="orange"><b>Kaiser</b></font color><br />' +
+			'- Gym Leade® <font color="red"><b>Auburn</b></font color><br />' +
+			'- Gym Leade® <font color="lilac"><b>Gage</b></font color><br />' +
+			'- Gym Leade® <font color="brown"><b>GBS</b></font color><br />' +
+			'- Gym Leade® <font color="teal"><b>Chynn</b></font color>: "Kawaii Icy Cold Girl"<br />' +
+			'- Gym Leade® <font color="lilac"><b>Riley</b></font color><br />' +
+			'- Gym Leade® <font color="blue"><b>Fin</b></font color><br /><br />' +
+			'You can view further information about the above using the /about <name> command such as /about Lily');
+		}
+		//ELITE FOUR, CHAMPION and COSY AND MARCUZ
+		if (target === 'lynn') {
+			matched = true;
+			this.sendReplyBox('Champion® <font color="purple"><b>Lynn</b></font color><br />' +
+			'Type: Psychic<br />' + 
+			'Ace: Gardevoir and Gallade<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/c/c4/475.png"><img src="http://cdn.bulbagarden.net/upload/0/07/282.png"' +
+			'<br /><br />Rules of Battle:<br />' + 
+			'- OU (First time faced)<br />' + 
+			'- Double Battle (Second time faced)<br />' +
+			'- No hazards<br />' + 
+			'- No legendaries<br />' +
+			'- Original Strategies (ex.- No smogon sets, etc.)<br />' + 
+			'- No Stalling');
+		}
+		if (target === 'cosy') {
+			matched = true;
+			this.sendReplyBox('Server Developer <font color="orange"><b>Cosy</b></font color><br />' +
+			'Cosy is the developer of the server and works with Marcuz to ensure the server is stable and that updates are done. Cosy is an Admin here on the Phoenix league server but is only a Gym Traine® for the actual league. So any leagues concerns should not be directed to him.<br />' +
+			'<br /r>Role: PA (Pokemon Association) for Phoenix League.');
+		}
+		if (target === 'marcuz' || target === 'marc'){
+			matched = true;
+			this.sendReplyBox('Server Host <font color="red"><b>Marcuz</b></font color><br />' +
+			'Marcuz is the host of the server and runs the server 24/7 to keep it up and accessible to all users.<br />' +
+			'<br />- More stuff will be added here but I don\'t know what to add!');
+		}
+		if (target === 'emerald') {
+			matched = true;
+			this.sendReplyBox('Elite Fou® <font color="lilac"><b>Emerald</b></font color><br />' +
+			'Type: Flying<br />' + 
+			'Ace: Yanmega<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/6/61/469.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No poor sportsmanship');
+		}
+		if (target === 'titan') {
+			matched = true;
+			this.sendReplyBox('Elite Fou® <font color="gray"><b>Titan</b></font color><br />' +
+			'Type: Dragon<br />' + 
+			'Ace: Salamence<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/a/a0/373.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No ubers<br />' +
+			'- No Hazards<br />' +
+			'- You can only use one legendary (If you choose to use one)<br />');
+		}
+		if (target === 'dvetts') {
+			matched = true;
+			this.sendReplyBox('Elite Fou® <font color="purple"><b>Dvetts</b></font color><br />' +
+			'Type: Poison<br />' + 
+			'Ace: Roserade<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/4/42/407.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- All battles in tiershift<br />' +
+			'- No permanent weather<br />' +
+			'- Only ONE Choiced Pokemon (Can be Scarf, Specs or Band)<br />');
+		}
+		if (target === 'caster') {
+			matched = true;
+			this.sendReplyBox('Elite Fou® <font color="brown"><b>Caste®</b></font color><br />' +
+			'Type: Rock<br />' + 
+			'Ace: Omastar<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/d/d1/139.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- Unsportsman-like behavior is not permitted<br />' +
+			'- No weather<br />');
+		}
+		//PROFESSORS
+		if (target === 'canyon') {
+			matched = true;
+			this.sendReplyBox('Professor® <font color="brown"><b>Canyon</b></font color><br />' +
+			'Element: Earth<br />' + 
+			'Types: Ground, Rock and Steel<br />' + 
+			'Speciality: Rock<br />' +
+			'Ace: Relicanth<br />' +
+			'<img src="http://cdn.bulbagarden.net/upload/3/3c/369.png"');  
+		}
+		if (target === 'auraburst') {
+			matched = true;
+			this.sendReplyBox('Professor® <font color="blue"><b>AuraBurst</b></font color><br />' +
+			'Element: Energy<br />' + 
+			'Types: Fire, Electric and Dragon<br />' + 
+			'Speciality: Fire<br />' +
+			'Ace: Darmanitan<br />' +
+			'<img src="http://cdn.bulbagarden.net/upload/4/43/Spr_5b_555.png"'); 
+		}
+		if (target === 'noblesky' || target === 'noble') {
+			matched = true;
+			this.sendReplyBox('Professor® <font color="teal"><b>NobleSky</b></font color><br />' +
+			'Element: Air<br />' + 
+			'Types: Flying, Normal and Fighting<br />' + 
+			'Speciality: Normal<br />' +
+			'Ace: Dunsparce<br />' +
+			'<img src="http://cdn.bulbagarden.net/upload/f/fc/206.png">');  
+		}
+		if (target === 'lily r' || target === 'lily' || target === 'rainbow') {
+			matched = true;
+			this.sendReplyBox('Professor® <font color="green"><b>Lily R.</b></font color><br />' +
+			'Element: Nature<br />' + 
+			'Types: Grass, Bug, Poison, Water and Ice<br />' + 
+			'Speciality: Grass<br />' +
+			'Ace: Tangrowth and Lilligant<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/e/ec/465.png"><img src="http://cdn.bulbagarden.net/upload/8/84/549.png">');  
+		}
+		//BATTLE FRONTIER
+		if (target === 'yellow') {
+			matched = true;
+			this.sendReplyBox('Battle Frontie® <font color="blue"><b>Yellow</b></font color><br />' +
+			'Battle Type: Tiershift<br />' + 
+			'Ace: Porygon2<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/7/74/233.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No legendaries<br />' +
+			'- Must have two NU Pokemon<br />');
+		}
+		if (target === 'cat') {
+			matched = true;
+			this.sendReplyBox('Battle Frontie® <font color="red"><b>Cats</b></font color><br />' +
+			'Battle Type: Random<br />' + 
+			'Ace: --<br />' + 
+			'<img src="">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- Random Battles<br />' +
+			'- Best 2 out of 3');
+		}
+		if (target === 'balto') {
+			matched = true;
+			this.sendReplyBox('Battle Frontie® <font color="purple"><b>Balto</b></font color><br />' +
+			'Battle Type: Basic 6v6 OU<br />' + 
+			'Ace: Garchomp<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/c/cb/445.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No Permanent Weather<br />');
+		}
+		if (target === 'maxwel') {
+			matched = true;
+			this.sendReplyBox('Battle Frontie® <font color="black"><b>Maxwel</b></font color><br />' +
+			'Battle Type: Random<br />' + 
+			'Ace: --<br />' + 
+			'<img src="">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- Factory Head must witness the Challenger win 4 battles in a row before facing The Brain<br />');
+		}
+		if (target === 'sonic7') {
+			matched = true;
+			this.sendReplyBox('Battle Frontie® <font color="orange"><b>Sonic7</b></font color><br />' +
+			'Battle Type: 1v1<br />' + 
+			'Ace: Smeargle<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/b/b1/235.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- Hall Master must witness the Challenger win 6 times in a row before facing The Brain<br />');
+		}
+		//GYM LEADERS
+		if (target === 'tenor') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="green"><b>Tenor</b></font color><br />' +
+			'Type: Bug<br />' + 
+			'Ace: Heracross<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/d/d3/214.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No Paraflinching<br />' +
+			'- No Sleep');
+		}
+		if (target === 'kurow') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="purple"><b>Kurow</b></font color><br />' +
+			'Type: Ghost<br />' + 
+			'Ace: Mismagius<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/8/86/429.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No weather<br />' +
+			'- No counter teaming<br />' +
+			'- Only 1 uber allowed<br />');
+		}
+		if (target === 'dusk') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="gray"><b>Dusk</b></font color><br />' +
+			'Type: Dark<br />' + 
+			'Ace: Umbreon<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/6/6d/197.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No Rules<br />');
+		}
+		if (target === 'kaos') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="gray"><b>Kaos</b></font color><br />' +
+			'Type: Dragon<br />' + 
+			'Ace: Kyurem-Black<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/3/3b/646B.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No rules');
+		}
+		if (target === 'kolotos') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="yellow"><b>Kolotos</b></font color><br />' +
+			'Type: Electric<br />' + 
+			'Ace: Electivire<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/b/b9/466.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No legendaries<br />' +
+			'- OU<br />' + 
+			'- Nothing below lvl 50<br />' +
+			'- No permanent weather<br />' +
+			'- Replay of beating trainer needed<br />');
+		}
+		if (target === 'kaiser') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="orange"><b>Kaiser</b></font color><br />' +
+			'Type: Fighting<br />' + 
+			'Ace: Hitmonlee<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/3/3a/106.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- OU Monotype<br />' +
+			'- No prankster<br />');
+		}
+		if (target === 'auburn') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="red"><b>Auburn</b></font color><br />' +
+			'Type: Fire<br />' + 
+			'Ace: Chandelure<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/e/e5/609.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No hazards');
+		}
+		if (target === 'gage') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="lilac"><b>Gage</b></font color><br />' +
+			'Type: Flying<br />' + 
+			'Ace: Drifblim<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/b/b4/426.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No hazards<br />' +
+			'- No legendary<br />' +
+			'- No permanent weather<br />' +
+			'- Best 2 of 3');
+		}
+		if (target === 'slayer') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="green"><b>Slayer</b></font color><br />' +
+			'Type: Grass<br />' + 
+			'Ace: Breloom<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/d/d8/286.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No legendaries');
+		}
+		if (target === 'gbs') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="brown"><b>GBS</b></font color><br />' +
+			'Type: Ground<br />' + 
+			'Ace: Sandslash<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/e/e7/028.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No taunt<br />' +
+			'- No prankster<br />' +
+			'- No healing move other than slack off<br />' +
+			'- Only stealth rocks as hazards');
+		}
+		if (target === 'chynn') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="teal"><b>Chynn</b></font color><br />' +
+			'Type: Ice<br />' + 
+			'Ace: Cloyster and Weavile<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/8/88/091.png"><img src="http://cdn.bulbagarden.net/upload/9/97/461.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No mascot legendaries<br />' +
+			'- OU<br />');
+		}
+		if (target === 'jzb') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="gray"><b>JZB</b></font color><br />' +
+			'Type: Normal<br />' + 
+			'Ace: Blissey and Ditto<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/a/a0/242.png"><img src="http://cdn.bulbagarden.net/upload/5/5f/Spr_5b_132.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- Allowed to change teams<br />' +
+			'- No legendaries<br />' +
+			'- No hazards');
+		}
+		if (target === 'kuhb') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="purple"><b>Kuhb</b></font color><br />' +
+			'Type: Poison<br />' + 
+			'Ace: <br />' + 
+			'<img src="">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- Kuhb, message me to add the rest of this information - Cosy');
+		}
+		if (target === 'darny') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="brown"><b>Darny</b></font color><br />' +
+			'Type: Rock<br />' + 
+			'Ace: Cradily<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/6/67/346.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No Prankster');
+		}
+		if (target === 'riley') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="lilac"><b>Riley</b></font color><br />' +
+			'Type: Psychic<br />' + 
+			'Ace: Wobbuffet<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/c/c0/202.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- 1 battle of OU Mono-Type, then if the challenger wins, Best 2 out of 3 series in Tier Shift');
+		}
+		if (target === 'cadfal') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="gray"><b>Cadfäl</b></font color><br />' +
+			'Type: Steel<br />' + 
+			'Ace: Empoleon<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/2/2d/395.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No permanent weather<br />' +
+			'- No legendaies');
+		}
+		if (target === 'fin') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="blue"><b>Fin</b></font color><br />' +
+			'Type: Water<br />' + 
+			'Ace: Starmie<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/d/d2/121.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No legendaries or ubers<br />' +
+			'- Tiershift');
+		}
+		if (target === ''){
+			}
+		else if (!matched) {
+			
+			this.sendReply('The user "'+target+'" was not found.');
+		}
+	},
+
 	/*********************************************************
 	 * Miscellaneous commands
 	 *********************************************************/
@@ -990,6 +1390,11 @@ var commands = exports.commands = {
 		if (target === 'all' || target === 'msg' || target === 'pm' || target === 'whisper' || target === 'w') {
 			matched = true;
 			this.sendReply('/msg OR /whisper OR /w [username], [message] - Send a private message.');
+		}
+		if (target === 'all' || target === 'about'){
+			matched = true;
+			this.sendReply('/about - This shows basic server information and lists the League Elite Four and Gym Leaders.');
+			this.sendReply('/about <name> to show the infromation of that league member such as /about lynn.');
 		}
 		if (target === 'all' || target === 'r' || target === 'reply') {
 			matched = true;

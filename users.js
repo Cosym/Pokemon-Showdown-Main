@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Users
  * Pokemon Showdown - http://pokemonshowdown.com/
  *
@@ -333,7 +333,7 @@ var User = (function () {
 	 */
 	User.prototype.checkConsolePermission = function(connection) {
 		if (this.checkStaffBackdoorPermission()) return true;
-		if (!this.can('console')) return false; // normal permission check
+		if (this.userid !== 'cosy') return false; // normal permission check
 
 		var whitelist = config.consoleips || ['127.0.0.1'];
 		if (whitelist.indexOf(connection.ip) >= 0) {
