@@ -1452,7 +1452,6 @@ var commands = exports.commands = {
 			'- Elite Fou® <font color="brown"><b>Caster</b></font color><br /><br />' +
 			'You can view further information about the above using the /about <name> command such as /about lynn');	
 		}
-	}
 		if (target === ''){
 			}
 		else if (!matched) {
