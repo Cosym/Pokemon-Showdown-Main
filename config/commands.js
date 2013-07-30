@@ -969,7 +969,7 @@ var commands = exports.commands = {
 			this.sendReplyBox('Phoenix League Elite Four and Champion:<br /><br />' +
 			'- Champion® <font color="purple"><b>Lynn</b></font color>: "The Cool Yet Elegant Psychic Master"<br />' +
 			'- Elite Fou® <font color="green"><b>Emerald</b></font color>: "The Swift Flying Master"<br />' +
-			'- Elite Fou® <font color="gray"><b>Titan</b></font color>: "The Majestic Dragon"<br />' +
+			'- Elite Fou® <font color="orange"><b>Cats</b></font color>: "The Luckiest Brawler"<br />' +
 			'- Elite Fou® <font color="brown"><b>Caste®</b></font color>: "The Only Unturned Stone"<br />' +
 			'- Elite Fou® <font color="purple"><b>Dvetts</b></font color><br /><br />' +
 			'You can view further information about the above using the /about <name> command such as /about lynn');
@@ -987,7 +987,6 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Phoenix League Battle Frontier:<br /><br />' +
 			'- Battle Frontie® <font color="blue"><b>Yellow</b></font color>: "Dome Ace"<br />' +
-			'- Battle Frontie® <font color="red"><b>Cats</b></font color>: "Palace Master"<br />' +
 			'- Battle Frontie® <font color="purple"><b>Balto</b></font color>: "Tower Tycoon"<br />' +
 			'- Battle Frontie® <font color="green"><b>Maxwel</b></font color>: "Factory Head"<br />' +
 			'- Battle Frontie® <font color="orange"><b>Sonic7</b></font color>: "Hall Master"<br /><br />' +
@@ -1052,16 +1051,14 @@ var commands = exports.commands = {
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No poor sportsmanship');
 		}
-		if (target === 'titan') {
+		if (target === 'Cats') {
 			matched = true;
-			this.sendReplyBox('Elite Fou® <font color="gray"><b>Titan</b></font color><br />' +
-			'Type: Dragon<br />' + 
-			'Ace: Salamence<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/a/a0/373.png">' + 
+			this.sendReplyBox('Elite Fou® <font color="orange"><b>Cats</b></font color><br />' +
+			'Type: Fighting<br />' + 
+			'Ace: Breloom<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/d/d8/286.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- No ubers<br />' +
-			'- No Hazards<br />' +
-			'- You can only use one legendary (If you choose to use one)<br />');
+			'- None at the moment');
 		}
 		if (target === 'dvetts') {
 			matched = true;
@@ -1131,16 +1128,6 @@ var commands = exports.commands = {
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No legendaries<br />' +
 			'- Must have two NU Pokemon<br />');
-		}
-		if (target === 'cat') {
-			matched = true;
-			this.sendReplyBox('Battle Frontie® <font color="red"><b>Cats</b></font color><br />' +
-			'Battle Type: Random<br />' + 
-			'Ace: --<br />' + 
-			'<img src="">' + 
-			'<br /><br />Rules of Battle:<br />' + 
-			'- Random Battles<br />' +
-			'- Best 2 out of 3');
 		}
 		if (target === 'balto') {
 			matched = true;
