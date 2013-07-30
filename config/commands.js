@@ -957,7 +957,7 @@ var commands = exports.commands = {
 			this.sendReplyBox('About this league/server:<br /><br />' +
 			'- This server is hosted by <b>Marcuz</b><br />' +
 			'- Server developed/maintained by <b>Cosy</b><br /><br />' +
-			'The league is made up for two regions, each with their own Gym Leaders and Elite Four but sharing a Champion, Professors and Battle Frontier:<br />' +
+			'The league is made up for two regions, each with their own Gym Leaders and Elite Four but sharing a Champion, Professors and Battle Frontier:<br /><br />' +
 			'- <b>Elite Four</b> - Made up of four members (per region) and the Champion. (Type /<region> elitefour for further information such as /celestia elitefour)<br />' +
 			'- <b>Professors</b> - Made up of several members who collectively help over different types and areas. (Type /about professors for further information)<br />' +
 			'- <b>Battle Frontier</b> - Made up of five members. (Type /about frontier for further information)<br />' +
@@ -1028,9 +1028,10 @@ var commands = exports.commands = {
 			'Ace: Yanmega<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/6/61/469.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- No poor sportsmanship');
+			'- Maximum of one shared type<br />' +
+			'- Nothing below Lvl. 50');
 		}
-		if (target === 'Cats') {
+		if (target === 'cats') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="orange"><b>Cats</b></font color><br />' +
 			'Type: Fighting<br />' + 
@@ -1072,7 +1073,7 @@ var commands = exports.commands = {
 			'Ace: Bisharp<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/b/bd/625.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Unknown RUles');
+			'- Unknown Rules');
 		}
 		if (target === 'riley') {
 			matched = true;
@@ -1084,7 +1085,7 @@ var commands = exports.commands = {
 			'<br /><br />Rules of Battle:<br />' + 
 			'- Unknown Rules');
 		}
-		if (target === 'Archer') {
+		if (target === 'archer') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="brown"><b>Archer</b></font color><br />' +
 			'Type: Ground<br />' + 
@@ -1102,7 +1103,7 @@ var commands = exports.commands = {
 			'Ace: Mamoswine<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/e/ec/473.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Monotype OU Battle');
+			'- OU Battle');
 		}
 		//PROFESSORS
 		if (target === 'canyon') {
@@ -1389,12 +1390,12 @@ var commands = exports.commands = {
 		var matched = false;
 		if (target === ''){
 			matched = true;
-			this.sendReply('Saraphia Region:<br /><br />' +
+			this.sendReplyBox('Saraphia Region:<br /><br />' +
 			'The Saraphia region is one of the two regions in the Phoenix League. The Saraphia region shares the same Champion, Professors and Battle Frontier as the Celestia region. However, the Saraphia region has different Gym Leaders and Elite Four which can be viewed by either /saraphia elitefour or /saraphia gymleaders.');
 		}
 		if (target === 'gymleaders'){
 			matched = true;
-			this.sendReply('Saraphia Region Gym Leaders:<br /><br />' +
+			this.sendReplyBox('Saraphia Region Gym Leaders:<br /><br />' +
 			'- Gym Leade® <font color="purple"><b>Kuhb</b></font color><br />' +
 			'- Gym Leade® <font color="gray"><b>Cadfäl</b></font color><br />' +
 			'- Gym Leade® <font color="teal"><b>Chynn</b></font color>: "Kawaii Icy Cold Girl"<br />' +
@@ -1408,7 +1409,7 @@ var commands = exports.commands = {
 		}
 		if (target === 'elitefour'){
 			matched = true;
-			this.sendReply('Saraphia Region Elite Four:<br /><br />' +
+			this.sendReplyBox('Saraphia Region Elite Four:<br /><br />' +
 			'- Champion® <font color="purple"><b>Lynn</b></font color>: "The Cool Yet Elegant Psychic Master"<br />' +
 			'- Elite Fou® <font color="gray"><b>Dusk</b></font color><br />' +
 			'- Elite Fou® <font color="purple"><b>Riley</b></font color><br />' +
@@ -1428,9 +1429,14 @@ var commands = exports.commands = {
 		if (!this.canBroadcast()) return;
 		target = target.toLowerCase();
 		var matched = false;
+		if (target === ''){
+			matched = true;
+			this.sendReplyBox('Celestia Region:<br /><br />' +
+			'The Celestia region is one of the two regions in the Phoenix League. The Celestia region shares the same Champion, Professors and Battle Frontier as the Saraphia region. However, the Celestia region has different Gym Leaders and Elite Four which can be viewed by either /celestia elitefour or /celestia gymleaders.');
+		}
 		if (target === 'gymleaders'){
 			matched = true;
-			this.sendReply('Celestia Region Gym Leaders:<br /><br />' +
+			this.sendReplyBox('Celestia Region Gym Leaders:<br /><br />' +
 			'- Gym Leade® <font color="gray"><b>Seto</b></font color><br />' +
 			'- Gym Leade® <font color="gray"><b>JZB</b></font color><br />' +
 			'- Gym Leade® <font color="yellow"><b>Kolotos</b></font color>: "The trainer charged with the Aura of Power"<br />' +
@@ -1444,7 +1450,7 @@ var commands = exports.commands = {
 		}
 		if (target === 'elitefour'){
 			matched = true;
-			this.sendReply('Celestia Region Elite Four:<br /><br />' +
+			this.sendReplyBox('Celestia Region Elite Four:<br /><br />' +
 			'- Champion® <font color="purple"><b>Lynn</b></font color>: "The Cool Yet Elegant Psychic Master"<br />' +
 			'- Elite Fou® <font color="orange"><b>Cats</b></font color><br />' +
 			'- Elite Fou® <font color="lilac"><b>Emerald</b></font color><br />' +
