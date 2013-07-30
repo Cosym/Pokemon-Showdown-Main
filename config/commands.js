@@ -624,6 +624,7 @@ var commands = exports.commands = {
 	groups: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('+ <b>Voice</b> - They can use ! commands like !groups, and talk during moderated chat<br />' +
+			'$ <b>Operator</b> - The above, and they can also warn users of a lower rank<br />' +
 			'% <b>Driver</b> - The above, and they can also mute and lock users and check for alts<br />' +
 			'@ <b>Moderator</b> - The above, and they can ban users<br />' +
 			'&amp; <b>Leader</b> - The above, and they can promote moderators and force ties<br />'+
@@ -926,6 +927,27 @@ var commands = exports.commands = {
 		}
 	},
 
+	forum: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('The forum can be found here:<br />' +
+			'- <a href="http://phoenixleague.forumotion.co.uk/">Forum</a><br />' +
+			'</div>');
+	}
+	
+	website: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('The website can be found here:<br />' +
+			'- <a href="http://phoenix-league.weebly.com/">League Website</a><br />' +
+			'</div>');
+	}
+	
+	chat: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('The chat channel can be found here:<br />' +
+			'- <a href="http://client01.chat.mibbit.com/#phoenix@irc.synirc.net">League Website</a><br />' +
+			'</div>');
+	}
+
 	about: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		target = target.toLowerCase();
@@ -1015,9 +1037,11 @@ var commands = exports.commands = {
 		}
 		if (target === 'marcuz' || target === 'marc'){
 			matched = true;
-			this.sendReplyBox('Server Host <font color="red"><b>Marcuz</b></font color><br />' +
+			this.sendReplyBox('Server Host <font color="red"><b>Marcuz</b></font color><br /><br />' +
 			'Marcuz is the host of the server and runs the server 24/7 to keep it up and accessible to all users.<br />' +
-			'<br />- More stuff will be added here but I don\'t know what to add!');
+			'<br />- "The Founder of Pokémon Leagues and The Master of Monotypes"<br />' +
+			'- "Marcuz likes rock music, puppies, and long walks on the beach"<br /><br />' +
+			'The above is information directly from Marcuz, so it is most likely false.');
 		}
 		if (target === 'emerald') {
 			matched = true;
