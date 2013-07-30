@@ -45,9 +45,9 @@ exports.BattleFormats = {
 
 		effectType: 'Format',
 		challengeDefault: true,
-		rated: true,
+		rated: false,
 		challengeShow: true,
-		searchShow: true,
+		searchShow: false,
 		isTeambuilderFormat: true,
 		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview'],
 		banlist: ['Uber', 'Drizzle ++ Swift Swim', 'Soul Dew', 'Hail', 'Snow Warning', 'Sand Stream', 'Sandstorm', 'Rain Dance', 'Drizzle', 'Drought', 'Sunny Day']
@@ -58,9 +58,9 @@ exports.BattleFormats = {
 
 		effectType: 'Format',
 		challengeDefault: true,
-		rated: true,
+		rated: false,
 		challengeShow: true,
-		searchShow: true,
+		searchShow: false,
 		isTeambuilderFormat: true,
 		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview'],
 		banlist: ['Uber', 'Drizzle ++ Swift Swim', 'Soul Dew', 'Hail', 'Sandstorm', 'Rain Dance', 'Sunny Day']
@@ -71,9 +71,9 @@ exports.BattleFormats = {
 
 		effectType: 'Format',
 		challengeDefault: true,
-		rated: true,
+		rated: false,
 		challengeShow: true,
-		searchShow: true,
+		searchShow: false,
 		isTeambuilderFormat: true,
 		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview'],
 		banlist: ['Uber', 'Drizzle ++ Swift Swim', 'Soul Dew', 'Spikes', 'Stealth Rocks', 'Toxic Spikes']
