@@ -937,14 +937,14 @@ var commands = exports.commands = {
 	website: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('The league website can be found here:<br />' +
-			'- <a href="http://client01.chat.mibbit.com/#phoenix@irc.synirc.net">League Website</a><br />' +
+			'- <a href="http://phoenix-league.weebly.com/">League Website</a><br />' +
 			'</div>');
 	},
 	
 	chat: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('The chat channel can be found here:<br />' +
-			'- <a href="http://phoenix-league.weebly.com/">Chat channel</a><br />' +
+			'- <a href="http://client01.chat.mibbit.com/#phoenix@irc.synirc.net">Chat channel</a><br />' +
 			'</div>');
 	},
 
@@ -957,22 +957,16 @@ var commands = exports.commands = {
 			this.sendReplyBox('About this league/server:<br /><br />' +
 			'- This server is hosted by <b>Marcuz</b><br />' +
 			'- Server developed/maintained by <b>Cosy</b><br /><br />' +
-			'The league has four distinct areas which are listed below:<br />' +
-			'- <b>Elite Four</b> - Made up of four members and the Champion. (Type /about elitefour for further information)<br />' +
+			'The league is made up for two regions, each with their own Gym Leaders and Elite Four but sharing a Champion, Professors and Battle Frontier:<br />' +
+			'- <b>Elite Four</b> - Made up of four members (per region) and the Champion. (Type /<region> elitefour for further information such as /celestia elitefour)<br />' +
 			'- <b>Professors</b> - Made up of several members who collectively help over different types and areas. (Type /about professors for further information)<br />' +
 			'- <b>Battle Frontier</b> - Made up of five members. (Type /about frontier for further information)<br />' +
-			'- <b>Gym Leaders</b> - A Gym Leader for each type, with their own rules and trainers. (Type /about gymleaders for further infromation)');
+			'- <b>Gym Leaders</b> - A Gym Leader for each type, with their own rules and trainers. (Type /<region> gymleaders for further infromation such as /saraphia gymleaders)');
 		}
 		//OTHER ABOUT PAGES
 		if (target === 'elitefour'){
 			matched = true;
-			this.sendReplyBox('Phoenix League Elite Four and Champion:<br /><br />' +
-			'- Champion® <font color="purple"><b>Lynn</b></font color>: "The Cool Yet Elegant Psychic Master"<br />' +
-			'- Elite Fou® <font color="green"><b>Emerald</b></font color>: "The Swift Flying Master"<br />' +
-			'- Elite Fou® <font color="orange"><b>Cats</b></font color>: "The Luckiest Brawler"<br />' +
-			'- Elite Fou® <font color="brown"><b>Caste®</b></font color>: "The Only Unturned Stone"<br />' +
-			'- Elite Fou® <font color="purple"><b>Dvetts</b></font color><br /><br />' +
-			'You can view further information about the above using the /about <name> command such as /about lynn');
+			this.sendReplyBox('You can view information about the Elite Four by using the /<region> elitefour command such as /celestia elitefour or /saraphia elitefour.');
 		}
 		if (target === 'professors') {
 			matched = true;
@@ -994,24 +988,7 @@ var commands = exports.commands = {
 		}
 		if (target === 'gymleaders'){
 			matched = true;
-			this.sendReplyBox('Phoenix League Gym Leaders:<br /><br />' +
-			'- Gym Leade® <font color="gray"><b>Dusk</b></font color><br />' +
-			'- Gym Leade® <font color="gray"><b>Kaos</b></font color><br />' +
-			'- Gym Leade® <font color="green"><b>Tenor</b></font color><br />' +
-			'- Gym Leade® <font color="green"><b>Slayer</b></font color>: ""Sash Master""<br />' +
-			'- Gym Leade® <font color="gray"><b>Cadfäl</b></font color><br />' +
-			'- Gym Leade® <font color="gray"><b>JZB</b></font color><br />' +
-			'- Gym Leade® <font color="purple"><b>Kuhb</b></font color><br />' +
-			'- Gym Leade® <font color="brown"><b>Darny</b></font color><br />' +
-			'- Gym Leade® <font color="yellow"><b>Kolotos</b></font color>: "The trainer charged with the Aura of Power"<br />' +
-			'- Gym Leade® <font color="orange"><b>Kaiser</b></font color><br />' +
-			'- Gym Leade® <font color="red"><b>Auburn</b></font color><br />' +
-			'- Gym Leade® <font color="lilac"><b>Gage</b></font color><br />' +
-			'- Gym Leade® <font color="brown"><b>GBS</b></font color><br />' +
-			'- Gym Leade® <font color="teal"><b>Chynn</b></font color>: "Kawaii Icy Cold Girl"<br />' +
-			'- Gym Leade® <font color="lilac"><b>Riley</b></font color><br />' +
-			'- Gym Leade® <font color="blue"><b>Fin</b></font color><br /><br />' +
-			'You can view further information about the above using the /about <name> command such as /about Lily');
+			this.sendReplyBox('You can view information about the Gym Leaders by using the /<region> gymleaders command such as /celestia gymleaders or /saraphia gymleaders.');
 		}
 		//ELITE FOUR, CHAMPION and COSY AND MARCUZ
 		if (target === 'lynn') {
@@ -1030,9 +1007,9 @@ var commands = exports.commands = {
 		}
 		if (target === 'cosy') {
 			matched = true;
-			this.sendReplyBox('Server Developer <font color="orange"><b>Cosy</b></font color><br />' +
-			'Cosy is the developer of the server and works with Marcuz to ensure the server is stable and that updates are done. Cosy is an Admin here on the Phoenix league server but is only a Gym Traine® for the actual league. So any leagues concerns should not be directed to him.<br />' +
-			'<br /r>Role: PA (Pokemon Association) for Phoenix League.');
+			this.sendReplyBox('Server Developer <font color="purple"><b>Cosy</b></font color><br />' +
+			'Cosy is the developer of the server and works with Marcuz to ensure the server is stable and that updates are done. Cosy is an Admin here on the Phoenix league server but is only a Gym Traine® for the actual league. So any leagues concerns should not be directed to him.<br /><br /r>' +
+			'Role: PA (Pokemon Association) for Phoenix League.');
 		}
 		if (target === 'marcuz' || target === 'marc'){
 			matched = true;
@@ -1042,10 +1019,12 @@ var commands = exports.commands = {
 			'- "Marcuz likes rock music, puppies, and long walks on the beach"<br /><br />' +
 			'The above is information directly from Marcuz, so it is most likely false.');
 		}
+		//CELESTIA ELITE FOUR
 		if (target === 'emerald') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="lilac"><b>Emerald</b></font color><br />' +
 			'Type: Flying<br />' + 
+			'Region: Celestia<br />' +
 			'Ace: Yanmega<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/6/61/469.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
@@ -1055,15 +1034,17 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="orange"><b>Cats</b></font color><br />' +
 			'Type: Fighting<br />' + 
+			'Region: Celestia<br />' +
 			'Ace: Breloom<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/d/d8/286.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- None at the moment');
+			'- Unknown Rules');
 		}
 		if (target === 'dvetts') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="purple"><b>Dvetts</b></font color><br />' +
 			'Type: Poison<br />' + 
+			'Region: Celestia<br />' +
 			'Ace: Roserade<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/4/42/407.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
@@ -1075,11 +1056,53 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="brown"><b>Caste®</b></font color><br />' +
 			'Type: Rock<br />' + 
+			'Region: Celestia<br />' +
 			'Ace: Omastar<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/d/d1/139.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- Unsportsman-like behavior is not permitted<br />' +
 			'- No weather<br />');
+		}
+		//SARAPHIA ELITE FOUR
+		if (target === 'dusk') {
+			matched = true;
+			this.sendReplyBox('Elite Fou® <font color="gray"><b>Dusk</b></font color><br />' +
+			'Type: Dark<br />' + 
+			'Region: Saraphia<br />' +
+			'Ace: Bisharp<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/b/bd/625.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- Unknown RUles');
+		}
+		if (target === 'riley') {
+			matched = true;
+			this.sendReplyBox('Elite Fou® <font color="Purple"><b>Riley</b></font color><br />' +
+			'Type: Psychic<br />' + 
+			'Region: Saraphia<br />' +
+			'Ace: Wobbuffet<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/c/c0/202.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- Unknown Rules');
+		}
+		if (target === 'Archer') {
+			matched = true;
+			this.sendReplyBox('Elite Fou® <font color="brown"><b>Archer</b></font color><br />' +
+			'Type: Ground<br />' + 
+			'Region: Saraphia<br />' +
+			'Ace: --<br />' + 
+			'<img src="">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- Unknown Rules');
+		}
+		if (target === 'jyph') {
+			matched = true;
+			this.sendReplyBox('Elite Fou® <font color="teal"><b>Jyph</b></font color><br />' +
+			'Type: Ice<br />' + 
+			'Region: Saraphia<br />' +
+			'Ace: Mamoswine<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/e/ec/473.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- Monotype OU Battle');
 		}
 		//PROFESSORS
 		if (target === 'canyon') {
@@ -1161,8 +1184,9 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="green"><b>Tenor</b></font color><br />' +
 			'Type: Bug<br />' + 
-			'Ace: Heracross<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/d/d3/214.png">' + 
+			'Region: Saraphia<br />' +
+			'Ace: Volcarona<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/3/39/637.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Paraflinching<br />' +
 			'- No Sleep');
@@ -1171,6 +1195,7 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="purple"><b>Kurow</b></font color><br />' +
 			'Type: Ghost<br />' + 
+			'Region: Celestia<br />' +
 			'Ace: Mismagius<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/8/86/429.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
@@ -1178,28 +1203,31 @@ var commands = exports.commands = {
 			'- No counter teaming<br />' +
 			'- Only 1 uber allowed<br />');
 		}
-		if (target === 'dusk') {
+		if (target === 'seto') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="gray"><b>Dusk</b></font color><br />' +
+			this.sendReplyBox('Gym Leade® <font color="gray"><b>Seto</b></font color><br />' +
 			'Type: Dark<br />' + 
+			'Region: Celestia<br />' +
 			'Ace: Umbreon<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/6/6d/197.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- No Rules<br />');
+			'- No Hazards<br />');
 		}
-		if (target === 'kaos') {
+		if (target === 'ese') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="gray"><b>Kaos</b></font color><br />' +
+			this.sendReplyBox('Gym Leade® <font color="gray"><b>Ese</b></font color><br />' +
 			'Type: Dragon<br />' + 
-			'Ace: Kyurem-Black<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/3/3b/646B.png">' + 
+			'Region: Saraphia<br />' +
+			'Ace: Latios<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/9/9a/381.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- No rules');
+			'- Unknown Rules');
 		}
 		if (target === 'kolotos') {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="yellow"><b>Kolotos</b></font color><br />' +
 			'Type: Electric<br />' + 
+			'Region: Celestia<br />' +
 			'Ace: Electivire<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/b/b9/466.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
@@ -1209,41 +1237,51 @@ var commands = exports.commands = {
 			'- No permanent weather<br />' +
 			'- Replay of beating trainer needed<br />');
 		}
-		if (target === 'kaiser') {
+		if (target === 'drak') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="orange"><b>Kaiser</b></font color><br />' +
-			'Type: Fighting<br />' + 
-			'Ace: Hitmonlee<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/3/3a/106.png">' + 
+			this.sendReplyBox('Gym Leade® <font color="orange"><b>Drak</b></font color><br />' +
+			'Type: Fighting<br />' +
+			'Region: Celestia<br />' + 
+			'Ace: Conkeldurr<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/6/6a/534.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- OU Monotype<br />' +
-			'- No prankster<br />');
+			'- Unknown Rules');
 		}
 		if (target === 'auburn') {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="red"><b>Auburn</b></font color><br />' +
 			'Type: Fire<br />' + 
+			'Region: Saraphia<br />' +
 			'Ace: Chandelure<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/e/e5/609.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No hazards');
 		}
-		if (target === 'gage') {
+		if (target === 'kunning') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="lilac"><b>Gage</b></font color><br />' +
-			'Type: Flying<br />' + 
-			'Ace: Drifblim<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/b/b4/426.png">' + 
+			this.sendReplyBox('Gym Leade® <font color="red"><b>Kunning</b></font color><br />' +
+			'Type: Fire<br />' + 
+			'Region: Celestia<br />' +
+			'Ace: Darmanitan<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/4/43/Spr_5b_555.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- No hazards<br />' +
-			'- No legendary<br />' +
-			'- No permanent weather<br />' +
-			'- Best 2 of 3');
+			'- No hazards');
+		}
+		if (target === 'barida') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="lilac"><b>Barida</b></font color><br />' +
+			'Type: Flying<br />' + 
+			'Region: Celestia<br />' +
+			'Ace: Drifblim<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/5/5b/472.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No Weather');
 		}
 		if (target === 'slayer') {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="green"><b>Slayer</b></font color><br />' +
 			'Type: Grass<br />' + 
+			'Region: Saraphia<br />' +
 			'Ace: Breloom<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/d/d8/286.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
@@ -1253,6 +1291,7 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="brown"><b>GBS</b></font color><br />' +
 			'Type: Ground<br />' + 
+			'Region: Saraphia<br />' +
 			'Ace: Sandslash<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/e/e7/028.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
@@ -1265,6 +1304,7 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="teal"><b>Chynn</b></font color><br />' +
 			'Type: Ice<br />' + 
+			'Region: Saraphia<br />' +
 			'Ace: Cloyster and Weavile<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/8/88/091.png"><img src="http://cdn.bulbagarden.net/upload/9/97/461.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
@@ -1275,6 +1315,7 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="gray"><b>JZB</b></font color><br />' +
 			'Type: Normal<br />' + 
+			'Region: Celestia<br />' +
 			'Ace: Blissey and Ditto<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/a/a0/242.png"><img src="http://cdn.bulbagarden.net/upload/5/5f/Spr_5b_132.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
@@ -1286,6 +1327,7 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="purple"><b>Kuhb</b></font color><br />' +
 			'Type: Poison<br />' + 
+			'Region: Saraphia<br />' +
 			'Ace: <br />' + 
 			'<img src="">' + 
 			'<br /><br />Rules of Battle:<br />' + 
@@ -1295,24 +1337,27 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="brown"><b>Darny</b></font color><br />' +
 			'Type: Rock<br />' + 
+			'Region: Saraphia<br />' +
 			'Ace: Cradily<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/6/67/346.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Prankster');
 		}
-		if (target === 'riley') {
+		if (target === 'omni') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="lilac"><b>Riley</b></font color><br />' +
+			this.sendReplyBox('Gym Leade® <font color="lilac"><b>Omni</b></font color><br />' +
 			'Type: Psychic<br />' + 
-			'Ace: Wobbuffet<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/c/c0/202.png">' + 
+			'Region: Celestia<br />' +
+			'Ace: Gallade<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/c/c4/475.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- 1 battle of OU Mono-Type, then if the challenger wins, Best 2 out of 3 series in Tier Shift');
+			'- Unknown Rules');
 		}
 		if (target === 'cadfal') {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="gray"><b>Cadfäl</b></font color><br />' +
 			'Type: Steel<br />' + 
+			'Region: Saraphia<br />' +
 			'Ace: Empoleon<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/2/2d/395.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
@@ -1323,6 +1368,7 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="blue"><b>Fin</b></font color><br />' +
 			'Type: Water<br />' + 
+			'Region: Celestia<br />' +
 			'Ace: Starmie<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/d/d2/121.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
@@ -1333,9 +1379,88 @@ var commands = exports.commands = {
 			}
 		else if (!matched) {
 			
-			this.sendReply('The user "'+target+'" was not found.');
+			this.sendReply('The user/object "'+target+'" was not found.');
 		}
 	},
+	
+	saraphia: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		target = target.toLowerCase();
+		var matched = false;
+		if (target === ''){
+			matched = true;
+			this.sendReply('Saraphia Region:<br /><br />' +
+			'The Saraphia region is one of the two regions in the Phoenix League. The Saraphia region shares the same Champion, Professors and Battle Frontier as the Celestia region. However, the Saraphia region has different Gym Leaders and Elite Four which can be viewed by either /saraphia elitefour or /saraphia gymleaders.');
+		}
+		if (target === 'gymleaders'){
+			matched = true;
+			this.sendReply('Saraphia Region Gym Leaders:<br /><br />' +
+			'- Gym Leade® <font color="purple"><b>Kuhb</b></font color><br />' +
+			'- Gym Leade® <font color="gray"><b>Cadfäl</b></font color><br />' +
+			'- Gym Leade® <font color="teal"><b>Chynn</b></font color>: "Kawaii Icy Cold Girl"<br />' +
+			'- Gym Leade® <font color="green"><b>Tenor</b></font color><br />' +
+			'- Gym Leade® <font color="green"><b>Slayer</b></font color>: ""Sash Master""<br />' +
+			'- Gym Leade® <font color="red"><b>Auburn</b></font color><br />' +
+			'- Gym Leade® <font color="brown"><b>GBS</b></font color><br />' +
+			'- Gym Leade® <font color="purple"><b>Ese</b></font color><br />' +
+			'- Gym Leade® <font color="brown"><b>Darny</b></font color><br /><br />' +
+			'You can view further information about the above using the /about <name> command such as /about Auburn');
+		}
+		if (target === 'elitefour'){
+			matched = true;
+			this.sendReply('Saraphia Region Elite Four:<br /><br />' +
+			'- Champion® <font color="purple"><b>Lynn</b></font color>: "The Cool Yet Elegant Psychic Master"<br />' +
+			'- Elite Fou® <font color="gray"><b>Dusk</b></font color><br />' +
+			'- Elite Fou® <font color="purple"><b>Riley</b></font color><br />' +
+			'- Elite Fou® <font color="brown"><b>Archer</b></font color><br />' +
+			'- Elite Fou® <font color="teal"><b>Jyph</b></font color><br /><br />' +
+			'You can view further information about the above using the /about <name> command such as /about lynn');	
+		}
+		if (target === ''){
+		}
+		else if (!matched) {
+			
+			this.sendReply('The user/object "'+target+'" was not found.');
+		}
+	},
+	
+	celestia: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		target = target.toLowerCase();
+		var matched = false;
+		if (target === 'gymleaders'){
+			matched = true;
+			this.sendReply('Celestia Region Gym Leaders:<br /><br />' +
+			'- Gym Leade® <font color="gray"><b>Seto</b></font color><br />' +
+			'- Gym Leade® <font color="gray"><b>JZB</b></font color><br />' +
+			'- Gym Leade® <font color="yellow"><b>Kolotos</b></font color>: "The trainer charged with the Aura of Power"<br />' +
+			'- Gym Leade® <font color="orange"><b>Drak</b></font color><br />' +
+			'- Gym Leade® <font color="lilac"><b>Barida</b></font color><br />' +
+			'- Gym Leade® <font color="lilac"><b>Omni</b></font color><br />' +
+			'- Gym Leade® <font color="blue"><b>Fin</b></font color><br /><br />' +
+			'- Gym Leade® <font color="red"><b>Kunning</b></font color><br />' +
+			'- Gym Leade® <font color="purple"><b>Kurow</b></font color><br /><br />' +
+			'You can view further information about the above using the /about <name> command such as /about Fin');	
+		}
+		if (target === 'elitefour'){
+			matched = true;
+			this.sendReply('Celestia Region Elite Four:<br /><br />' +
+			'- Champion® <font color="purple"><b>Lynn</b></font color>: "The Cool Yet Elegant Psychic Master"<br />' +
+			'- Elite Fou® <font color="orange"><b>Cats</b></font color><br />' +
+			'- Elite Fou® <font color="lilac"><b>Emerald</b></font color><br />' +
+			'- Elite Fou® <font color="purple"><b>Dvetts</b></font color><br />' +
+			'- Elite Fou® <font color="brown"><b>Caster</b></font color><br /><br />' +
+			'You can view further information about the above using the /about <name> command such as /about lynn');	
+		}
+	}
+		if (target === ''){
+			}
+		else if (!matched) {
+			
+			this.sendReply('The user/object "'+target+'" was not found.');
+		}
+	},
+		
 
 	/*********************************************************
 	 * Miscellaneous commands
