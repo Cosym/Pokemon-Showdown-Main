@@ -941,13 +941,6 @@ var commands = exports.commands = {
 			'</div>');
 	},
 	
-	league: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('The website can be found here:<br />' +
-			'- <a href="http://phoenix-league.weebly.com/">League Website</a><br />' +
-			'</div>');
-	}
-	
 	chat: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('The chat channel can be found here:<br />' +
