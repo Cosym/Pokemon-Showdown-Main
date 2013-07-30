@@ -932,14 +932,21 @@ var commands = exports.commands = {
 		this.sendReplyBox('The forum can be found here:<br />' +
 			'- <a href="http://phoenixleague.forumotion.co.uk/">Forum</a><br />' +
 			'</div>');
-	}
+	},
+	
+	website: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('The league website can be found here:<br />' +
+			'- <a href="http://client01.chat.mibbit.com/#phoenix@irc.synirc.net">League Website</a><br />' +
+			'</div>');
+	},
 	
 	chat: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('The chat channel can be found here:<br />' +
-			'- <a href="http://client01.chat.mibbit.com/#phoenix@irc.synirc.net">League Website</a><br />' +
+			'- <a href="http://phoenix-league.weebly.com/">Chat channel</a><br />' +
 			'</div>');
-	}
+	},
 
 	about: function(target, room, user) {
 		if (!this.canBroadcast()) return;
