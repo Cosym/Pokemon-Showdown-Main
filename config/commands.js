@@ -245,7 +245,7 @@ var commands = exports.commands = {
 	},
 	
 	declaregreen: 'declarered',
-	declarered: function(target, room, user, null, cmd) {
+	declarered: function(target, room, user, connection, cmd) {
 		if (!target) return this.parse('/help declare');
 		if (!this.can('declare', null, room)) return false;
 
