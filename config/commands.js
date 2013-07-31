@@ -219,6 +219,32 @@ var commands = exports.commands = {
 		}
 		if (!atLeastOne) this.sendReply("No results found.");
 	},
+	
+	gdeclare: function(target, room, user) {
+		if (!target) return this.parse('/help gdeclare');
+		if (!this.can('lockdown')) return false;
+		
+		for (var id in Rooms.rooms) {
+			if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-red"><b>'+target+'</b></div>');
+		}
+		this.logEntry(user.name + ' used /gdeclare');
+	},
+	
+	declaregreen: 'declarered',
+	declarered: function(target, room, user, null, cmd) {
+		if (!target) return this.parse('/help declare');
+		if (!this.can('declare', null, room)) return false;
+
+		if (!this.canTalk()) return;
+
+		if (cmd === 'declarered'){
+			this.add('|raw|<div class="broadcast-red"><b>'+target+'</b></div>');
+		}
+		else if (cmd === 'declaregreen'){
+			this.add('|raw|<div class="broadcast-green"><b>'+target+'</b></div>');
+		}
+		this.logModCommand(user.name+' declared '+target);
+	},
 
 	/*********************************************************
 	 * Shortcuts
@@ -1146,7 +1172,7 @@ var commands = exports.commands = {
 		if (target === 'yellow') {
 			matched = true;
 			this.sendReplyBox('Battle Frontie® <font color="blue"><b>Yellow</b></font color><br />' +
-			'Battle Type: Tiershift<br />' + 
+			'Battle Type: 2v2<br />' + 
 			'Ace: Porygon2<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/7/74/233.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
@@ -1246,7 +1272,7 @@ var commands = exports.commands = {
 			'Ace: Conkeldurr<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/6/6a/534.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Unknown Rules');
+			'- No Hazards');
 		}
 		if (target === 'auburn') {
 			matched = true;
@@ -1273,7 +1299,7 @@ var commands = exports.commands = {
 			this.sendReplyBox('Gym Leade® <font color="lilac"><b>Barida</b></font color><br />' +
 			'Type: Flying<br />' + 
 			'Region: Celestia<br />' +
-			'Ace: Drifblim<br />' + 
+			'Ace: Gliscor<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/5/5b/472.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Weather');
@@ -1391,16 +1417,16 @@ var commands = exports.commands = {
 		if (target === ''){
 			matched = true;
 			this.sendReplyBox('Saraphia Region:<br /><br />' +
-			'The Saraphia region is one of the two regions in the Phoenix League. The Saraphia region shares the same Champion, Professors and Battle Frontier as the Celestia region. However, the Saraphia region has different Gym Leaders and Elite Four which can be viewed by either /saraphia elitefour or /saraphia gymleaders.');
+			'The Saraphia region is one of the two regions in the Phoenix League. The Saraphia region shares the same Champion, Professors and Battle Frontier as the Celestia region.<br /><br /> However, the Saraphia region has different Gym Leaders and Elite Four which can be viewed by either /saraphia elitefour or /saraphia gymleaders.');
 		}
 		if (target === 'gymleaders'){
 			matched = true;
 			this.sendReplyBox('Saraphia Region Gym Leaders:<br /><br />' +
 			'- Gym Leade® <font color="purple"><b>Kuhb</b></font color><br />' +
 			'- Gym Leade® <font color="gray"><b>Cadfäl</b></font color><br />' +
-			'- Gym Leade® <font color="teal"><b>Chynn</b></font color>: "Kawaii Icy Cold Girl"<br />' +
+			'- Gym Leade® <font color="teal"><b>Chynn</b></font color><br />' +
 			'- Gym Leade® <font color="green"><b>Tenor</b></font color><br />' +
-			'- Gym Leade® <font color="green"><b>Slayer</b></font color>: ""Sash Master""<br />' +
+			'- Gym Leade® <font color="green"><b>Slayer</b></font color><br />' +
 			'- Gym Leade® <font color="red"><b>Auburn</b></font color><br />' +
 			'- Gym Leade® <font color="brown"><b>GBS</b></font color><br />' +
 			'- Gym Leade® <font color="purple"><b>Ese</b></font color><br />' +
@@ -1432,18 +1458,18 @@ var commands = exports.commands = {
 		if (target === ''){
 			matched = true;
 			this.sendReplyBox('Celestia Region:<br /><br />' +
-			'The Celestia region is one of the two regions in the Phoenix League. The Celestia region shares the same Champion, Professors and Battle Frontier as the Saraphia region. However, the Celestia region has different Gym Leaders and Elite Four which can be viewed by either /celestia elitefour or /celestia gymleaders.');
+			'The Celestia region is one of the two regions in the Phoenix League. The Celestia region shares the same Champion, Professors and Battle Frontier as the Saraphia region.<br /><br /> However, the Celestia region has different Gym Leaders and Elite Four which can be viewed by either /celestia elitefour or /celestia gymleaders.');
 		}
 		if (target === 'gymleaders'){
 			matched = true;
 			this.sendReplyBox('Celestia Region Gym Leaders:<br /><br />' +
 			'- Gym Leade® <font color="gray"><b>Seto</b></font color><br />' +
 			'- Gym Leade® <font color="gray"><b>JZB</b></font color><br />' +
-			'- Gym Leade® <font color="yellow"><b>Kolotos</b></font color>: "The trainer charged with the Aura of Power"<br />' +
+			'- Gym Leade® <font color="yellow"><b>Kolotos</b></font color><br />' +
 			'- Gym Leade® <font color="orange"><b>Drak</b></font color><br />' +
 			'- Gym Leade® <font color="lilac"><b>Barida</b></font color><br />' +
 			'- Gym Leade® <font color="lilac"><b>Omni</b></font color><br />' +
-			'- Gym Leade® <font color="blue"><b>Fin</b></font color><br /><br />' +
+			'- Gym Leade® <font color="blue"><b>Fin</b></font color><br />' +
 			'- Gym Leade® <font color="red"><b>Kunning</b></font color><br />' +
 			'- Gym Leade® <font color="purple"><b>Kurow</b></font color><br /><br />' +
 			'You can view further information about the above using the /about <name> command such as /about Fin');	
@@ -1732,6 +1758,10 @@ var commands = exports.commands = {
 		if (target === '&' || target === 'declare' ) {
 			matched = true;
 			this.sendReply('/declare [message] - Anonymously announces a message. Requires: & ~');
+		}
+		if (target === '~' || target === 'gdeclare' ) {
+			matched = true;
+			this.sendReply('/gdeclare [message] - Anonymously announces a message to all rooms. Requires: ~');
 		}
 		if (target === '&' || target === 'potd' ) {
 			matched = true;
