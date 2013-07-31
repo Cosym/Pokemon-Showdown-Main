@@ -220,12 +220,26 @@ var commands = exports.commands = {
 		if (!atLeastOne) this.sendReply("No results found.");
 	},
 	
-	gdeclare: function(target, room, user) {
+	gdeclarered: 'gdeclare',
+	gdeclaregreen: 'gdeclare',
+	gdeclare: function(target, room, user, connection, cmd) {
 		if (!target) return this.parse('/help gdeclare');
 		if (!this.can('lockdown')) return false;
-		
-		for (var id in Rooms.rooms) {
-			if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-red"><b>'+target+'</b></div>');
+
+		if (cmd === 'gdeclare'){
+			for (var id in Rooms.rooms) {
+				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b>'+target+'</b></div>');
+			}
+		}
+		if (cmd === 'gdeclarered'){
+			for (var id in Rooms.rooms) {
+				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-red"><b>'+target+'</b></div>');
+			}
+		}
+		else if (cmd === 'gdeclaregreen'){
+			for (var id in Rooms.rooms) {
+				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-green"><b>'+target+'</b></div>');
+			}
 		}
 		this.logEntry(user.name + ' used /gdeclare');
 	},
@@ -1065,7 +1079,10 @@ var commands = exports.commands = {
 			'Ace: Breloom<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/d/d8/286.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Unknown Rules');
+			'- Monotype team and Tiershift<br />' +
+			'- No Paraflinching<br />' +
+			'- No Ubers or Legendaries<br />' +
+			'- Best 2 out of 3');
 		}
 		if (target === 'dvetts') {
 			matched = true;
@@ -1099,7 +1116,7 @@ var commands = exports.commands = {
 			'Ace: Bisharp<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/b/bd/625.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Unknown Rules');
+			'- No Rules');
 		}
 		if (target === 'riley') {
 			matched = true;
@@ -1109,7 +1126,10 @@ var commands = exports.commands = {
 			'Ace: Wobbuffet<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/c/c0/202.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Unknown Rules');
+			'- Tiershift<br />' +
+			'- No Legendaries<br />' +
+			'- No Hazards<br />' +
+			'- 1 replay with the Psychic Gym Leader required');
 		}
 		if (target === 'archer') {
 			matched = true;
@@ -1129,7 +1149,8 @@ var commands = exports.commands = {
 			'Ace: Mamoswine<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/e/ec/473.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- OU Battle');
+			'- OU Battle<br />' +
+			'- No Entry Hazards');
 		}
 		//PROFESSORS
 		if (target === 'canyon') {
@@ -1186,7 +1207,8 @@ var commands = exports.commands = {
 			'Ace: Garchomp<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/c/cb/445.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- No Permanent Weather<br />');
+			'- No Permanent Weather<br />' +
+			'- No Hazards');
 		}
 		if (target === 'maxwel') {
 			matched = true;
@@ -1248,7 +1270,8 @@ var commands = exports.commands = {
 			'Ace: Latios<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/9/9a/381.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Unknown Rules');
+			'- No Prankster<br />' +
+			'- No Hazards');
 		}
 		if (target === 'kolotos') {
 			matched = true;
@@ -1292,7 +1315,7 @@ var commands = exports.commands = {
 			'Ace: Darmanitan<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/4/43/Spr_5b_555.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- No hazards');
+			'- No Hazards');
 		}
 		if (target === 'barida') {
 			matched = true;
@@ -1378,7 +1401,7 @@ var commands = exports.commands = {
 			'Ace: Gallade<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/c/c4/475.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Unknown Rules');
+			'- No Rules');
 		}
 		if (target === 'cadfal') {
 			matched = true;
