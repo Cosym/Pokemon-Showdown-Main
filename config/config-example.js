@@ -66,12 +66,12 @@ exports.loginserverpublickey = "-----BEGIN RSA PUBLIC KEY-----\n" +
 //   be more than one line of messages.
 //   This feature can lag larger servers - turn this off if your server is
 //   getting more than 80 or so users.
-exports.reportjoins = true;
+exports.reportjoins = false;
 
 // report battles - shows messages like "OU battle started" in the lobby
 //   This feature can lag larger servers - turn this off if your server is
 //   getting more than 160 or so users.
-exports.reportbattles = true;
+exports.reportbattles = false;
 
 // moderated chat - prevent unregistered, unvoiced users from speaking
 //   This should only be enabled temporarily, when you're dealing with
@@ -107,7 +107,7 @@ exports.consoleips = ['127.0.0.1'];
 exports.watchconfig = true;
 
 // logchat - whether to log chat rooms.
-exports.logchat = false;
+exports.logchat = true;
 
 // loguserstats - how often (in milliseconds) to write user stats to the
 // lobby log. This has no effect if `logchat` is disabled.
@@ -134,13 +134,50 @@ exports.herokuhack = false;
 // Your server *must* be registered in order for your custom avatars to be
 // displayed in the client.
 exports.customavatars = {
+	'championlynn' : 'Ruby.png',
+	'cosy' : 'Cosy.png',
+	'elitefoustun' : 'Stunfisk.png',
+	'gymtraineroxas' : 'Roxas.png',
+	'marcuz' : 'Marcuz.png',
+	'frontieyellow' : 'Yellow.png',
+	'gymleadechynn' : 'Chynn.png',
+	'professolilyr' : 'Lily.png',
+	'professonoblesky' : 'Noble.png',
+	'gymtraineflav' : 'Flav.png',
+	'frontiemaxwel' : 'Maxwel.png',
+	'gymleadetenor' : 'Tenor.png',
+	'elitefoudvetts' : 'Dvetts.png',
+	'gymtrainemeowth' : 'Meowth.png',
+	'gymleadekurow' : 'Kurow.png',
+	'frontiebalto' : 'Balto.png',
+	'elitefoudusk' : 'Dusk.png',
+	'gymtrainegage' : 'Gage.png',
+	'gymtrainexero' : 'Xero.png',
+	'elitefouemerald' : 'Emerald.png',
+	'frontiesonic7' : 'Sonic.png',
+	'auburn' : 'Auburn.png',
+	'gymtrainebanded' : 'Banded.png',
+	'elitefoucaste' : 'Caster.png',
+	'gymtraineprodigy' : 'Prodigy.png',
+	'prfessoauraburst' : 'Auraburst.png',
+	'pimpelefante' : 'Riley.png',
+	'gymleaderiley' : 'Riley.png',
+	'elepimp' : 'Riley.png',
+	'gymtrainegk' : 'Gk.png',
+	'gymtraineslime' : 'Slime.png',
+	'gymleadedrak' : 'Drak.png',
+	'gymtrainemrbamm' : 'MrBamm.png',
+	'gymleadeseto' : 'seto.png',
+	'gymtrainelaw' : 'law.png',
+	'gymtraineakuma' : 'akuma.png',
+	'gymleadebarida' : 'Barida.png'	
 	//'userid': 'customavatar.png'
 };
 
 // appealurl - specify a URL containing information on how users can appeal
 // disciplinary actions on your section. You can also leave this blank, in
 // which case users won't be given any information on how to appeal.
-exports.appealurl = '';
+exports.appealurl = 'http://phoenixleague.forumotion.co.uk/f10-ban-appeal';
 
 // permissions and groups:
 //   Each entry in `groupsranking' specifies the ranking of the groups.
@@ -181,13 +218,13 @@ exports.appealurl = '';
 //     - potd: Set PotD.
 //     - forcewin: /forcewin command.
 //     - battlemessage: /a command.
-exports.groupsranking = [' ', '+', '%', '@', '#', '&', '~'];
+exports.groupsranking = [' ', '+', '$', '%', '@', '#', '&', '~'];
 exports.groups = {
 	'~': {
 		id: "admin",
 		name: "Administrator",
 		root: true,
-		rank: 6
+		rank: 7
 	},
 	'&': {
 		id: "leader",
@@ -201,7 +238,7 @@ exports.groups = {
 		rangeban: true,
 		potd: true,
 		disableladder: true,
-		rank: 5
+		rank: 6
 	},
 	'#': {
 		id: "owner",
@@ -211,7 +248,7 @@ exports.groups = {
 		roommod: true,
 		declare: true,
 		modchatall: true,
-		rank: 4
+		rank: 5
 	},
 	'@': {
 		id: "mod",
@@ -223,7 +260,7 @@ exports.groups = {
 		forcerename: true,
 		ip: true,
 		alts: '@u',
-		rank: 3
+		rank: 4
 	},
 	'%': {
 		id: "driver",
@@ -242,6 +279,16 @@ exports.groups = {
 		bypassblocks: 'u%@&~',
 		receiveauthmessages: true,
 		roomvoice: true,
+		rank: 3
+	},
+	'$': {
+		id: "op",
+		name: "Operator",
+		jurisdiction: 'u',
+		inherit: ' ',
+		broadcast: true,
+		warn: true,
+		kick: true,
 		rank: 2
 	},
 	'+': {
