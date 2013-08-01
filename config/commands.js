@@ -260,6 +260,16 @@ var commands = exports.commands = {
 		this.logModCommand(user.name+' declared '+target);
 	},
 
+	flogout: 'forcelogout',
+	forcelogout: function(target, room, user) {
+		if(!user.can('hotpatch')) return false;
+		if (!target) return this.sendReply('/forcelogout [username] OR /flogout [username]');
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+		if (targetUser.can('hotpatch')) return this.sendReply('You cannot force logout another Admin - nice try. Chump.');
+		targetUser.resetName();
+	},
+	
 	/*********************************************************
 	 * Shortcuts
 	 *********************************************************/
@@ -1297,16 +1307,6 @@ var commands = exports.commands = {
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Hazards');
 		}
-		if (target === 'auburn') {
-			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="red"><b>Auburn</b></font color><br />' +
-			'Type: Fire<br />' + 
-			'Region: Saraphia<br />' +
-			'Ace: Chandelure<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/e/e5/609.png">' + 
-			'<br /><br />Rules of Battle:<br />' + 
-			'- No hazards');
-		}
 		if (target === 'kunning') {
 			matched = true;
 			this.sendReplyBox('Gym Leade® <font color="red"><b>Kunning</b></font color><br />' +
@@ -1450,7 +1450,6 @@ var commands = exports.commands = {
 			'- Gym Leade® <font color="teal"><b>Chynn</b></font color><br />' +
 			'- Gym Leade® <font color="green"><b>Tenor</b></font color><br />' +
 			'- Gym Leade® <font color="green"><b>Slayer</b></font color><br />' +
-			'- Gym Leade® <font color="red"><b>Auburn</b></font color><br />' +
 			'- Gym Leade® <font color="brown"><b>GBS</b></font color><br />' +
 			'- Gym Leade® <font color="purple"><b>Ese</b></font color><br />' +
 			'- Gym Leade® <font color="brown"><b>Darny</b></font color><br /><br />' +
