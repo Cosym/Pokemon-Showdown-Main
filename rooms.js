@@ -223,6 +223,7 @@ var GlobalRoom = (function() {
 		var rooms = {official:[], chat:[], userCount: this.userCount, battleCount: this.battleCount};
 		for (var i=0; i<this.chatRooms.length; i++) {
 			var room = this.chatRooms[i];
+			if (!room) continue;
 			if (room.isPrivate) continue;
 			(!room.auth ? rooms.official : rooms.chat).push({
 				title: room.title,
@@ -382,8 +383,8 @@ var GlobalRoom = (function() {
 		}
 		if (!chatRoomsToDelete) return false;
 		// Delete all the room data and write the file
-		delete this.chatRooms[chatRoomsToDelete];
-		delete this.chatRoomData[chatRoomDataToDelete];
+		this.chatRooms.splice(chatRoomsToDelete, 1);
+		this.chatRoomData.splice(chatRoomDataToDelete, 1);
 		delete rooms[id];
 		this.writeChatRoomData();
 		return true;
