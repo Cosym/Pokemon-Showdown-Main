@@ -262,7 +262,7 @@ var commands = exports.commands = {
 
 	flogout: 'forcelogout',
 	forcelogout: function(target, room, user) {
-		if(!user.can('hotpatch')) return false;
+		if(!user.can('hotpatch')) return;
 		
 		if (!target) return this.sendReply('/forcelogout [username], [reason] OR /flogout [username], [reason] - You do not have to add a reason');
 		
