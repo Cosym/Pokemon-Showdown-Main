@@ -263,11 +263,21 @@ var commands = exports.commands = {
 	flogout: 'forcelogout',
 	forcelogout: function(target, room, user) {
 		if(!user.can('hotpatch')) return false;
-		if (!target) return this.sendReply('/forcelogout [username] OR /flogout [username]');
+		
+		if (!target) return this.sendReply('/forcelogout [username], [reason] OR /flogout [username], [reason] - You do not have to add a reason');
+		
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
+		
+		if (!targetUser) {
+			return this.sendReply('User '+this.targetUsername+' not found.');
+		}
+		
 		if (targetUser.can('hotpatch')) return this.sendReply('You cannot force logout another Admin - nice try. Chump.');
+		
 		targetUser.resetName();
+		
+		this.addModCommand(''+targetUser+' was forcibly logged out by '+user.name+'.' + (target ? " (" + target + ")" : ""));
 	},
 	
 	/*********************************************************
@@ -1772,6 +1782,10 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReply('/forcerenameto OR /frt [username] - Force a user to choose a new name. Requires: & ~');
 			this.sendReply('/forcerenameto OR /frt [username], [new name] - Forcibly change a user\'s name to [new name]. Requires: & ~');
+		}
+		if (target === '~' || target === 'forcelogout' || target === 'flogout') {
+			matched = true;
+			this.sendReply('/forcelogout [username], [reason] OR /flogout [username], [reason] - Forcibly logout a user. Requires: & ~');
 		}
 		if (target === '&' || target === 'forcetie') {
 			matched = true;
