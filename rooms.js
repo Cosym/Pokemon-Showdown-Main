@@ -53,7 +53,7 @@ var GlobalRoom = (function() {
 
 		this.autojoin = []; // rooms that users autojoin upon connecting
 		this.staffAutojoin = []; // rooms that staff autojoin upon connecting
-		for (var i=0; i<this.chatRoomData.length; i++) { if (!room) console.log('crashing fucker: ' + i); continue;	
+		for (var i=0; i<this.chatRoomData.length; i++) { console.log(this.chatRoomData); break;	
 			var id = toId(this.chatRoomData[i].title);
 			console.log("NEW CHATROOM: "+id);
 			var room = rooms[id] = new ChatRoom(id, this.chatRoomData[i].title, this.chatRoomData[i]);
