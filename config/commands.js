@@ -277,7 +277,7 @@ var commands = exports.commands = {
 		
 		targetUser.resetName();
 		
-		this.addModCommand(''+targetUser+' was forcibly logged out by '+user.name+'.' + (target ? " (" + target + ")" : ""));
+		this.addModCommand(''+targetUser.name+' was forcibly logged out by '+user.name+'.' + (target ? " (" + target + ")" : ""));
 	},
 	
 	/*********************************************************
@@ -1463,7 +1463,7 @@ var commands = exports.commands = {
 			'- Gym Leade® <font color="brown"><b>GBS</b></font color><br />' +
 			'- Gym Leade® <font color="purple"><b>Ese</b></font color><br />' +
 			'- Gym Leade® <font color="brown"><b>Darny</b></font color><br /><br />' +
-			'You can view further information about the above using the /about <name> command such as /about Auburn');
+			'You can view further information about the above using the /about <name> command such as /about GBS');
 		}
 		if (target === 'elitefour'){
 			matched = true;
