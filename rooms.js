@@ -223,7 +223,6 @@ var GlobalRoom = (function() {
 		var rooms = {official:[], chat:[], userCount: this.userCount, battleCount: this.battleCount};
 		for (var i=0; i<this.chatRooms.length; i++) {
 			var room = this.chatRooms[i];
-			if (!room) console.log('crashing fucker: ' + i); continue;
 			if (room.isPrivate) continue;
 			(!room.auth ? rooms.official : rooms.chat).push({
 				title: room.title,
