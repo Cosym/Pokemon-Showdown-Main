@@ -105,6 +105,7 @@ var commands = exports.commands = {
 	makechatroom: function(target, room, user) {
 		if (!this.can('makeroom')) return;
 		var id = toId(target);
+		if (!id) return this.parse('/help makechatroom');
 		if (Rooms.rooms[id]) {
 			return this.sendReply("The room '"+target+"' already exists.");
 		}
@@ -114,14 +115,19 @@ var commands = exports.commands = {
 		return this.sendReply("An error occurred while trying to create the room '"+target+"'.");
 	},
 
-	deletechatroom: function(target, room, user) {
+	deregisterchatroom: function(target, room, user) {
 		if (!this.can('makeroom')) return;
 		var id = toId(target);
-		if (!Rooms.rooms[id]) return this.sendReply("The room '"+target+"' doesn't exist.");
-		if (Rooms.global.removeChatRoom(target)) {
-			return this.sendReply("The room '"+target+"' was deleted.");
+		if (!id) return this.parse('/help deregisterchatroom');
+		var targetRoom = Rooms.get(id);
+		if (!targetRoom) return this.sendReply("The room '"+id+"' doesn't exist.");
+		target = targetRoom.title || targetRoom.id;
+		if (Rooms.global.deregisterChatRoom(id)) {
+			this.sendReply("The room '"+target+"' was deregistered.");
+			this.sendReply("It will be deleted as of the next server restart.");
+			return;
 		}
-		return this.sendReply("An error occurred while trying to delete the room '"+target+"'.");
+		return this.sendReply("The room '"+target+"' isn't registered.");
 	},
 
 	privateroom: function(target, room, user) {
@@ -303,6 +309,10 @@ var commands = exports.commands = {
 		}
 	},
 
+	autojoin: function(target, room, user, connection) {
+		Rooms.global.autojoinRooms(user, connection)
+	},
+
 	join: function(target, room, user, connection) {
 		var targetRoom = Rooms.get(target) || Rooms.get(toId(target));
 		if (target && !targetRoom) {
@@ -342,7 +352,10 @@ var commands = exports.commands = {
 		if (!targetUser || !targetUser.connected) {
 			return this.sendReply('User '+this.targetUsername+' not found.');
 		}
-		if (!this.can('warn', targetUser)) return false;
+		if (room.isPrivate && room.auth) {
+			return this.sendReply('You can\'t warn here: This is a privately-owned room not subject to global rules.');
+		}
+		if (!this.can('warn', targetUser, room)) return false;
 
 		this.addModCommand(''+targetUser.name+' was warned by '+user.name+'.' + (target ? " (" + target + ")" : ""));
 		targetUser.send('|c|~|/warn '+target);
