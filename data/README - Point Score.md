@@ -33,6 +33,7 @@ BANNED:
 
 - Sleep Clause active
 - All pokemon must be level 100
+- UBERS only have one non-damaging move
 
 The Points:
 ------------------------------------------------------------------------
