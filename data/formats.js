@@ -84,9 +84,11 @@ exports.BattleFormats = {
 
 		effectType: 'Format',
 		challengeDefault: true,
+		rated: true,
 		challengeShow: true,
+		searchShow: true,
 		isTeambuilderFormat: true,
-		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview', 'Point Score'],
+		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview', 'Point System'],
 		banlists: ['Drizzle ++ Swift Swim', 'Soul Dew', 'Arceus', 'Shadow Tag']
 	},
 	/**
@@ -1152,7 +1154,8 @@ exports.BattleFormats = {
 			return ["Your team must share a type."];
 		}
 	},
-	pointscore: {
+	pointsystem: {
+		name: 'Point System',
 		effectType: 'Banlist',
 		validateTeam: function(team, format) {
 			var movePoints = {
