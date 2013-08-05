@@ -266,6 +266,8 @@ var commands = exports.commands = {
 		
 		if (!target) return this.sendReply('/forcelogout [username], [reason] OR /flogout [username], [reason] - You do not have to add a reason');
 		
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
 		
 		if (!targetUser) {
 			return this.sendReply('User '+this.targetUsername+' not found.');
