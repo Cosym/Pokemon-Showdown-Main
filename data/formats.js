@@ -2183,7 +2183,29 @@ exports.BattleFormats = {
 				}
 				console.log("Points after Item (#"+i+"): "+points);
 			}
-			
+
+			var nonDam = 0;
+
+			for (var i=0; i<team.length; i++){
+				var set = team[i];
+				var template = this.getTemplate(set.species);
+
+				if (template.tier === 'Uber'){
+					console.log("2 template: "+template.tier);
+					for (var b=0; b<set.moves.length; b++){
+						var base = this.getMove(set.moves[b]).basePower;
+						console.log("3"+b+" base: "+base);
+						if (base === 0){
+							if (nonDam = 2){
+								problems.push("You cannot have more than one non-daming move on an Uber.");
+								break;
+							}
+							nonDam++;
+						}
+					}
+				}
+			}
+
 			if(points > maxPoints)
 				problems.push("You've used "+points+"/"+maxPoints+" Points.");
 			
