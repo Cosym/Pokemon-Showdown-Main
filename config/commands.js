@@ -263,6 +263,7 @@ var commands = exports.commands = {
 	flogout: 'forcelogout',
 	forcelogout: function(target, room, user) {
 		if(!user.can('hotpatch')) return;
+		if (!this.canTalk()) return false;
 		
 		if (!target) return this.sendReply('/forcelogout [username], [reason] OR /flogout [username], [reason] - You do not have to add a reason');
 		
@@ -285,6 +286,7 @@ var commands = exports.commands = {
 	kick: function(target, room, user){
 		if (!this.can('lock')) return false;
 		if (!target) return this.sendReply('/help kick');
+		if (!this.canTalk()) return false;
 
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
@@ -304,6 +306,7 @@ var commands = exports.commands = {
 
 	daymute: function(target, room, user) {
 		if (!target) return this.parse('/help daymute');
+		if (!this.canTalk()) return false;
 
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
@@ -1599,6 +1602,7 @@ var commands = exports.commands = {
 	punny: 'pun',
 	pun: function(target, room, user) {
 		if(!this.canBroadcast) return;
+		if (!this.can(lock)) return;
 
 		var puns = ['What happened when the cow tried to jump over a barbed wire fence? Udder destruction.','Cannibals like to meat people.',
 		'When an actress saw her first strands of gray hair, she thought she\'d dye.','My first job was working in an orange juice factory, but I got canned because I couldn\'t concentrate.',
@@ -1611,7 +1615,7 @@ var commands = exports.commands = {
 
 		var rand = Math.floor(Math.random()*puns.length);
 
-		return this.add('Pun says: '+puns[rand]);
+		return this.sendReply('Pun says: '+puns[rand]);
 	},
 
 	birkal: function(target, room, user) {

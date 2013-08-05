@@ -344,6 +344,7 @@ var commands = exports.commands = {
 
 	warn: function(target, room, user) {
 		if (!target) return this.parse('/help warn');
+		if (!this.canTalk()) return false;
 
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
@@ -385,6 +386,7 @@ var commands = exports.commands = {
 	mute: function(target, room, user, connection, cmd) {
 		if (!target && cmd === 'mute' || !target && cmd === 'm') return this.parse('/help mute');
 		if (!target && cmd === 'hourmute') return this.parse('/help hourmute');
+		if (!this.canTalk()) return false;
 
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
@@ -444,6 +446,7 @@ var commands = exports.commands = {
 	um: 'unmute',
 	unmute: function(target, room, user) {
 		if (!target) return this.parse('/help something');
+		if (!this.canTalk()) return false;
 		var targetid = toUserid(target);
 		var targetUser = Users.get(target);
 		if (!targetUser) {
@@ -463,6 +466,7 @@ var commands = exports.commands = {
 	ipmute: 'lock',
 	lock: function(target, room, user) {
 		if (!target) return this.parse('/help lock');
+		if (!this.canTalk()) return false;
 
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
@@ -491,6 +495,7 @@ var commands = exports.commands = {
 	unlock: function(target, room, user) {
 		if (!target) return this.parse('/help unlock');
 		if (!this.can('lock')) return false;
+		if (!this.canTalk()) return false;
 
 		var unlocked = Users.unlock(target);
 
@@ -725,6 +730,7 @@ var commands = exports.commands = {
 	fr: 'forcerename',
 	forcerename: function(target, room, user) {
 		if (!target) return this.parse('/help forcerename');
+		if (!this.canTalk()) return false;
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
 		if (!targetUser) {
