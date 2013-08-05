@@ -228,17 +228,17 @@ var commands = exports.commands = {
 
 		if (cmd === 'gdeclare'){
 			for (var id in Rooms.rooms) {
-				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b>'+target+'</b></div>');
+				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b><font size=1><i>Global declare from '+room.id+'<br /></i></font size>'+target+'</b></div>');
 			}
 		}
 		if (cmd === 'gdeclarered'){
 			for (var id in Rooms.rooms) {
-				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-red"><b>'+target+'</b></div>');
+				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-red"><b><font size=1><i>Global declare from '+room.id+'<br /></i></font size>'+target+'</b></div>');
 			}
 		}
 		else if (cmd === 'gdeclaregreen'){
 			for (var id in Rooms.rooms) {
-				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-green"><b>'+target+'</b></div>');
+				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-green"><b><font size=1><i>Global declare from '+room.id+'<br /></i></font size>'+target+'</b></div>');
 			}
 		}
 		this.logEntry(user.name + ' used /gdeclare');
@@ -266,8 +266,6 @@ var commands = exports.commands = {
 		
 		if (!target) return this.sendReply('/forcelogout [username], [reason] OR /flogout [username], [reason] - You do not have to add a reason');
 		
-		target = this.splitTarget(target);
-		var targetUser = this.targetUser;
 		
 		if (!targetUser) {
 			return this.sendReply('User '+this.targetUsername+' not found.');
@@ -278,9 +276,57 @@ var commands = exports.commands = {
 		this.addModCommand(''+targetUser.name+' was forcibly logged out by '+user.name+'.' + (target ? " (" + target + ")" : ""));
 		
 		targetUser.resetName();
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 76b3d88ce4f8ad1710a61a1b51038efbf42a8401
 	},
-	
+
+
+	k: 'kick',
+	kick: function(target, room, user){
+		if (!this.can('lock')) return false;
+		if (!target) return this.sendReply('/help kick');
+
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+
+		if (!targetUser || !targetUser.connected) {
+			return this.sendReply('User '+this.targetUsername+' not found.');
+		}
+
+		if (!this.can('lock', targetUser, room)) return false;
+
+		this.addModCommand(targetUser.name+' was kicked from the room by '+user.name+'.');
+
+		targetUser.popup('You were kicked from '+room.id+' by '+user.name+'.');
+
+		targetUser.leaveRoom(room.id);
+	},
+
+	daymute: function(target, room, user) {
+		if (!target) return this.parse('/help daymute');
+
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+		if (!targetUser) {
+			return this.sendReply('User '+this.targetUsername+' not found.');
+		}
+		if (!this.can('mute', targetUser, room)) return false;
+
+		if (((targetUser.mutedRooms[room.id] && (targetUser.muteDuration[room.id]||0) >= 50*60*1000) || targetUser.locked) && !target) {
+			var problem = ' but was already '+(!targetUser.connected ? 'offline' : targetUser.locked ? 'locked' : 'muted');
+			return this.privateModCommand('('+targetUser.name+' would be muted by '+user.name+problem+'.)');
+		}
+
+		targetUser.popup(user.name+' has muted you for 24 hours. '+target);
+		this.addModCommand(''+targetUser.name+' was muted by '+user.name+' for 24 hours.' + (target ? " (" + target + ")" : ""));
+		var alts = targetUser.getAlts();
+		if (alts.length) this.addModCommand(""+targetUser.name+"'s alts were also muted: "+alts.join(", "));
+
+		targetUser.mute(room.id, 24*60*60*1000, true);
+	},
+
 	/*********************************************************
 	 * Shortcuts
 	 *********************************************************/
@@ -1763,9 +1809,13 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReply('/kickbattle [username], [reason] - Kicks an user from a battle with reason. Requires: % @ & ~');
 		}
-		if (target === "%" || target === 'warn' || target === 'k') {
+		if (target === "%" || target === 'warn') {
 			matched = true;
 			this.sendReply('/warn OR /k [username], [reason] - Warns a user showing them the Pokemon Showdown Rules and [reason] in an overlay. Requires: % @ & ~');
+		}
+		if (target === "%" || target === 'kick' || target === 'k') {
+			matched = true;
+			this.sendReply('/kick OR /k [username] - Kicks a user from the room they are currently in. Requires: % @ & ~');
 		}
 		if (target === '%' || target === 'mute' || target === 'm') {
 			matched = true;
@@ -1774,6 +1824,10 @@ var commands = exports.commands = {
 		if (target === '%' || target === 'hourmute') {
 			matched = true;
 			this.sendReply('/hourmute , [reason] - Mute user with reason for an hour. Requires: % @ & ~');
+		}	
+		if (target === '%' || target === 'daymute') {
+			matched = true;
+			this.sendReply('/daymute , [reason] - Mute user with reason for one day / 24 hours. Requires: % @ & ~');
 		}	
 		if (target === '%' || target === 'unmute') {
 			matched = true;

@@ -342,8 +342,6 @@ var commands = exports.commands = {
 	 * Moderating: Punishments
 	 *********************************************************/
 
-	kick: 'warn',
-	k: 'warn',
 	warn: function(target, room, user) {
 		if (!target) return this.parse('/help warn');
 
@@ -381,9 +379,12 @@ var commands = exports.commands = {
 		targetUser.joinRoom(target);
 	},
 
+	daymute: 'mute',
+	hourmute: 'mute',
 	m: 'mute',
-	mute: function(target, room, user) {
-		if (!target) return this.parse('/help mute');
+	mute: function(target, room, user, connection, cmd) {
+		if (!target && cmd === 'mute' || !target && cmd === 'm') return this.parse('/help mute');
+		if (!target && cmd === 'hourmute') return this.parse('/help hourmute');
 
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
@@ -399,15 +400,25 @@ var commands = exports.commands = {
 			return this.addModCommand(''+targetUser.name+' would be muted by '+user.name+problem+'.' + (target ? " (" + target + ")" : ""));
 		}
 
-		targetUser.popup(user.name+' has muted you for 7 minutes. '+target);
-		this.addModCommand(''+targetUser.name+' was muted by '+user.name+' for 7 minutes.' + (target ? " (" + target + ")" : ""));
 		var alts = targetUser.getAlts();
-		if (alts.length) this.addModCommand(""+targetUser.name+"'s alts were also muted: "+alts.join(", "));
 
-		targetUser.mute(room.id, 7*60*1000);
+		if (cmd === 'mute' || cmd === 'm'){
+			targetUser.popup(user.name+' has muted you for 7 minutes. '+target);
+			this.addModCommand(''+targetUser.name+' was muted by '+user.name+' for 7 minutes.' + (target ? " (" + target + ")" : ""));
+			if (alts.length) this.addModCommand(""+targetUser.name+"'s alts were also muted: "+alts.join(", "));
+			targetUser.mute(room.id, 7*60*1000);
+		}
+		else if (cmd === 'hourmute'){
+			targetUser.popup(user.name+' has muted you for 60 minutes. '+target);
+			this.addModCommand(''+targetUser.name+' was muted by '+user.name+' for 60 minutes.' + (target ? " (" + target + ")" : ""));
+			if (alts.length) this.addModCommand(""+targetUser.name+"'s alts were also muted: "+alts.join(", "));
+			targetUser.mute(room.id, 60*60*1000);
+		}
+		else
+			return this.sendReply("You dun goofed");
 	},
 
-	hourmute: function(target, room, user) {
+	/*hourmute: function(target, room, user) {
 		if (!target) return this.parse('/help hourmute');
 
 		target = this.splitTarget(target);
@@ -428,7 +439,7 @@ var commands = exports.commands = {
 		if (alts.length) this.addModCommand(""+targetUser.name+"'s alts were also muted: "+alts.join(", "));
 
 		targetUser.mute(room.id, 60*60*1000, true);
-	},
+	},*/
 
 	um: 'unmute',
 	unmute: function(target, room, user) {
