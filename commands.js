@@ -342,8 +342,6 @@ var commands = exports.commands = {
 	 * Moderating: Punishments
 	 *********************************************************/
 
-	kick: 'warn',
-	k: 'warn',
 	warn: function(target, room, user) {
 		if (!target) return this.parse('/help warn');
 
@@ -381,6 +379,7 @@ var commands = exports.commands = {
 		targetUser.joinRoom(target);
 	},
 
+	daymute: 'mute',
 	hourmute: 'mute',
 	m: 'mute',
 	mute: function(target, room, user, connection, cmd) {

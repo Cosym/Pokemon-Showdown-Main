@@ -84,13 +84,11 @@ exports.BattleFormats = {
 
 		effectType: 'Format',
 		challengeDefault: true,
-		rated: true,
 		challengeShow: true,
-		searchShow: true,
 		isTeambuilderFormat: true,
 		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview', 'Point Score'],
 		banlists: ['Drizzle ++ Swift Swim', 'Soul Dew', 'Arceus', 'Shadow Tag']
-	}
+	},
 	/**
 	oucurrent: {
 		name: "OU (current)",
@@ -1153,7 +1151,7 @@ exports.BattleFormats = {
 			}
 			return ["Your team must share a type."];
 		}
-	}
+	},
 	pointscore: {
 		effectType: 'Banlist',
 		validateTeam: function(team, format) {
