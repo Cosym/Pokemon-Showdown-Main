@@ -275,9 +275,10 @@ var commands = exports.commands = {
 		
 		if (targetUser.can('hotpatch')) return this.sendReply('You cannot force logout another Admin - nice try. Chump.');
 		
+		this.addModCommand(''+targetUser.name+' was forcibly logged out by '+user.name+'.' + (target ? " (" + target + ")" : ""));
+		
 		targetUser.resetName();
 		
-		this.addModCommand(''+targetUser.name+' was forcibly logged out by '+user.name+'.' + (target ? " (" + target + ")" : ""));
 	},
 	
 	/*********************************************************
@@ -735,7 +736,7 @@ var commands = exports.commands = {
 			'- <a href="http://pokemonshowdown.com/replay/gennextou-37815908">roseyraid vs Zarel</a><br />' +
 			'- <a href="http://pokemonshowdown.com/replay/gennextou-37900768">QwietQwilfish vs pickdenis</a>');
 	},
-
+	
 	om: 'othermetas',
 	othermetas: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -1008,6 +1009,14 @@ var commands = exports.commands = {
 			'</div>');
 	},
 
+	pointscore: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Point Score is a custom rule set which uses points to adjust how you make a team:<br />' +
+			'- <a href="https://github.com/Cosym/Pokemon-Showdown/blob/master/data/README%20-%20Point%20Score.md#the-points">README: overview of Point Score</a><br />' +
+			'Example replays:<br />' +
+			'- Currently none, if you have a good replay feel free to share the link');
+	},
+
 	about: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		target = target.toLowerCase();
@@ -1260,9 +1269,9 @@ var commands = exports.commands = {
 			'- No Paraflinching<br />' +
 			'- No Sleep');
 		}
-		if (target === 'kurow') {
+		if (target === 'dimentio') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="purple"><b>Kurow</b></font color><br />' +
+			this.sendReplyBox('Gym Leade® <font color="purple"><b>Dimentio</b></font color><br />' +
 			'Type: Ghost<br />' + 
 			'Region: Celestia<br />' +
 			'Ace: Mismagius<br />' + 
@@ -1503,7 +1512,7 @@ var commands = exports.commands = {
 			'- Gym Leade® <font color="lilac"><b>Omni</b></font color><br />' +
 			'- Gym Leade® <font color="blue"><b>Fin</b></font color><br />' +
 			'- Gym Leade® <font color="red"><b>Kunning</b></font color><br />' +
-			'- Gym Leade® <font color="purple"><b>Kurow</b></font color><br /><br />' +
+			'- Gym Leade® <font color="purple"><b>Dimentio</b></font color><br /><br />' +
 			'You can view further information about the above using the /about <name> command such as /about Fin');	
 		}
 		if (target === 'elitefour'){
