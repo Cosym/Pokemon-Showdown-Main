@@ -1209,8 +1209,8 @@ var commands = exports.commands = {
 			this.sendReplyBox('Elite Fou® <font color="brown"><b>Archer</b></font color><br />' +
 			'Type: Ground<br />' + 
 			'Region: Saraphia<br />' +
-			'Ace: --<br />' + 
-			'<img src="">' + 
+			'Ace: Hippowdon<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/0/03/450.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- Unknown Rules');
 		}
@@ -1360,13 +1360,13 @@ var commands = exports.commands = {
 			'- No permanent weather<br />' +
 			'- Replay of beating trainer needed<br />');
 		}
-		if (target === 'drak') {
+		if (target === 'kaiser') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="orange"><b>Drak</b></font color><br />' +
+			this.sendReplyBox('Gym Leade® <font color="orange"><b>Kaiser</b></font color><br />' +
 			'Type: Fighting<br />' +
 			'Region: Celestia<br />' + 
-			'Ace: Conkeldurr<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/6/6a/534.png">' + 
+			'Ace: Gallade<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/c/c4/475.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Hazards');
 		}
@@ -1494,7 +1494,7 @@ var commands = exports.commands = {
 			'Type: Bug<br />' + 
 			'Region: Celestia<br />' +
 			'Ace: Scizor and Heracross<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/d/d2/121.png">' + 
+			'<img src="http://cdn.bulbagarden.net/upload/6/64/212.png"><img src="http://cdn.bulbagarden.net/upload/d/d3/214.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Hazards<br />' +
 			'- Only two OU Pokemon<br />' +

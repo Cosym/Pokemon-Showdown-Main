@@ -2196,7 +2196,7 @@ exports.BattleFormats = {
 						var base = this.getMove(set.moves[b]).basePower;
 						console.log("3"+b+" base: "+base);
 						if (base === 0){
-							if (nonDam = 2){
+							if (nonDam > 1){
 								problems.push("You cannot have more than one non-daming move on an Uber.");
 								break;
 							}
