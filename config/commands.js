@@ -1488,6 +1488,19 @@ var commands = exports.commands = {
 			'- No legendaries or ubers<br />' +
 			'- Tiershift');
 		}
+		if (target === 'vale') {
+			matched = true;
+			this.sendReplyBox('Gym Leade® <font color="green"><b>Vale</b></font color><br />' +
+			'Type: Bug<br />' + 
+			'Region: Celestia<br />' +
+			'Ace: Scizor and Heracross<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/d/d2/121.png">' + 
+			'<br /><br />Rules of Battle:<br />' + 
+			'- No Hazards<br />' +
+			'- Only two OU Pokemon<br />' +
+			'- Must have at least one NU and RU Pokemon<br />' +
+			'- Tiershift');
+		}
 		if (target === ''){
 			}
 		else if (!matched) {
@@ -1550,6 +1563,7 @@ var commands = exports.commands = {
 			this.sendReplyBox('Celestia Region Gym Leaders:<br /><br />' +
 			'- Gym Leade® <font color="gray"><b>Seto</b></font color><br />' +
 			'- Gym Leade® <font color="gray"><b>JZB</b></font color><br />' +
+			'- Gym Leade® <font color="green"><b>Vale</b></font color><br />' +
 			'- Gym Leade® <font color="yellow"><b>Kolotos</b></font color><br />' +
 			'- Gym Leade® <font color="orange"><b>Drak</b></font color><br />' +
 			'- Gym Leade® <font color="lilac"><b>Barida</b></font color><br />' +
