@@ -1596,6 +1596,24 @@ var commands = exports.commands = {
 	 * Miscellaneous commands
 	 *********************************************************/
 
+	punny: 'pun',
+	pun: function(target, room, user) {
+		if(!this.canBroadcast) return;
+
+		var puns = ['What happened when the cow tried to jump over a barbed wire fence? Udder destruction.','Cannibals like to meat people.',
+		'When an actress saw her first strands of gray hair, she thought she\'d dye.','My first job was working in an orange juice factory, but I got canned because I couldn\'t concentrate.',
+		'At the supermarket I saw a man and a woman wrapped in a barcode. I asked, "Are you two an item?"','To write with a broken pencil is pointless.',
+		'Where did the king put his armies? In his sleevies.','What\'s the definition of a will? (Come on, it\'s a dead giveaway!)',
+		'Following last week\'s news that Origami Bank had folded, we are hearing that Sumo Bank has gone belly up and Bonsai Bank plans to cut back some of its branches. Karaoke Bank is up for sale and is (you guessed it!) going for a song.',
+		'I used to be a doctor, but then I lost patients.','Did you hear about the man who was tap dancing? He broke his ankle when he fell into the sink.',
+		'Did you hear about the cannibal who was late for dinner? He got the cold shoulder.','A dentist and a manicurist fought tooth and nail.',
+		'In some places fog will never be mist.','I used to be a railroad conductor, but my boss found out I wasn\'t trained.','Corduroy pillows are making headlines'];
+
+		var rand = Math.floor(Math.random()*puns.length);
+
+		return this.add('Pun says: '+puns[rand]);
+	},
+
 	birkal: function(target, room, user) {
 		this.sendReply("It's not funny anymore.");
 	},
