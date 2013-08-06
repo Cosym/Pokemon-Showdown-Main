@@ -826,6 +826,10 @@ var commands = exports.commands = {
 			matched = true;
 			buffer += '- <a href="http://www.smogon.com/forums/threads/3481155/">OM of the Month</a>';
 		}
+		if (target === 'all' || target === 'rebalancedmono') {
+			matched = true;
+			buffer += '- <a href="http://pastebin.com/tqqJT4MG">Rebalanced Monotype</a>';
+		}
 		if (!matched) {
 			return this.sendReply('The Other Metas entry "'+target+'" was not found. Try /othermetas or /om for general help.');
 		}
@@ -1061,7 +1065,7 @@ var commands = exports.commands = {
 		this.sendReplyBox('Point Score is a custom rule set which uses points to adjust how you make a team:<br />' +
 			'- <a href="https://github.com/Cosym/Pokemon-Showdown/blob/master/data/README%20-%20Point%20Score.md#the-points">README: overview of Point Score</a><br />' +
 			'Example replays:<br />' +
-			'- Currently none, if you have a good replay feel free to share the link');
+			'- <a href="http://pokemonshowdown.com/replay/phoenixleague-pointscore-3822">Elite Fou® Cats vs Elite Fou® dvetts</a>');
 	},
 
 	about: function(target, room, user) {
@@ -1388,8 +1392,8 @@ var commands = exports.commands = {
 			this.sendReplyBox('Gym Leade® <font color="lilac"><b>Barida</b></font color><br />' +
 			'Type: Flying<br />' + 
 			'Region: Celestia<br />' +
-			'Ace: Gliscor<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/5/5b/472.png">' + 
+			'Ace: Honchkrow<br />' + 
+			'<img src="http://images1.wikia.nocookie.net/__cb20090505212915/pokemon/images/thumb/4/46/430Honchkrow.png/200px-430Honchkrow.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Weather');
 		}
