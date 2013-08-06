@@ -1602,7 +1602,6 @@ var commands = exports.commands = {
 	punny: 'pun',
 	pun: function(target, room, user) {
 		if(!this.canBroadcast) return;
-		if (!this.can(lock)) return;
 
 		var puns = ['What happened when the cow tried to jump over a barbed wire fence? Udder destruction.','Cannibals like to meat people.',
 		'When an actress saw her first strands of gray hair, she thought she\'d dye.','My first job was working in an orange juice factory, but I got canned because I couldn\'t concentrate.',
