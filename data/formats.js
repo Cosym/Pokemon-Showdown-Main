@@ -91,7 +91,7 @@ exports.BattleFormats = {
 		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview', 'Point System'],
 		banlists: ['Drizzle ++ Swift Swim', 'Soul Dew', 'Arceus', 'Shadow Tag']
 	},
-	/*perserverance: {
+	perserverance: {
 		name: "Perserverance",
 		section: "Singles",
 
@@ -102,9 +102,20 @@ exports.BattleFormats = {
 		searchShow: true,
 		isTeambuilderFormat: true,
 		defaultLevel: 100,
+		onFaint: function(pokemon) {
+				var name = pokemon.side.name;
+				var winner = '';
+				if (pokemon.side.id === 'p1') {
+					winner = 'p2';
+				} else {
+					winner = 'p1';
+				}
+				pokemon.battle.win(winner);
+			
+		},
 		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview'],
 		banlist: ['Uber', 'Drizzle ++ Swift Swim', 'Soul Dew', 'Shuckle', 'Sableye']
-	},*/
+	},
 	/**
 	oucurrent: {
 		name: "OU (current)",
