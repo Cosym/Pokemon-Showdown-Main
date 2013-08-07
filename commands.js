@@ -153,6 +153,7 @@ var commands = exports.commands = {
 		if (!room.chatRoomData) {
 			this.sendReply("/roommod - This room isn't designed for per-room moderation to be added");
 		}
+		if (!target) return this.sendReply("/roomowner [username] - You must add a username to promote")
 		var target = this.splitTarget(target, true);
 		var targetUser = this.targetUser;
 
@@ -174,6 +175,7 @@ var commands = exports.commands = {
 		if (!room.auth) {
 			this.sendReply("/roomdeowner - This room isn't designed for per-room moderation");
 		}
+		if (!target) return this.sendReply("/deroomowner [username] - You must add a username to demote")
 		var target = this.splitTarget(target, true);
 		var targetUser = this.targetUser;
 		var name = this.targetUsername;
@@ -216,6 +218,7 @@ var commands = exports.commands = {
 			this.sendReply("/roommod - This room isn't designed for per-room moderation");
 			return this.sendReply("Before setting room mods, you need to set it up with /roomowner");
 		}
+		if (!target) return this.sendReply("/roommod [username] - You must add a username to promote")
 		var target = this.splitTarget(target, true);
 		var targetUser = this.targetUser;
 
@@ -242,6 +245,7 @@ var commands = exports.commands = {
 			this.sendReply("/roommod - This room isn't designed for per-room moderation");
 			return this.sendReply("Before setting room mods, you need to set it up with /roomowner");
 		}
+		if (!target) return this.sendReply("/deroommod [username] - You must add a username to demote")
 		var target = this.splitTarget(target, true);
 		var targetUser = this.targetUser;
 		var name = this.targetUsername;
@@ -264,6 +268,7 @@ var commands = exports.commands = {
 			this.sendReply("/roomvoice - This room isn't designed for per-room moderation");
 			return this.sendReply("Before setting room voices, you need to set it up with /roomowner");
 		}
+		if (!target) return this.sendReply("/roomvoice [username] - You must add a username to promote")
 		var target = this.splitTarget(target, true);
 		var targetUser = this.targetUser;
 
@@ -292,6 +297,7 @@ var commands = exports.commands = {
 			this.sendReply("/roomdevoice - This room isn't designed for per-room moderation");
 			return this.sendReply("Before setting room voices, you need to set it up with /roomowner");
 		}
+		if (!target) return this.sendReply("/deroomvoice [username] - You must add a username to demote")
 		var target = this.splitTarget(target, true);
 		var targetUser = this.targetUser;
 		var name = this.targetUsername;
@@ -669,9 +675,12 @@ var commands = exports.commands = {
 		if (!target) {
 			return this.sendReply('Moderated chat is currently set to: '+room.modchat);
 		}
-		if (!this.can('modchat', null, room) || !this.canTalk()) return false;
+		if (!this.can('lockdown') || user.groupName === 'Administrator') {
+			if (!this.can('modchat', null, room) || !this.canTalk()) return false;
+		}
 
 		target = target.toLowerCase();
+
 		switch (target) {
 		case 'on':
 		case 'true':
@@ -700,7 +709,11 @@ var commands = exports.commands = {
 			this.add('|raw|<div class="broadcast-red"><b>Moderated chat was enabled!</b><br />Only registered users can talk.</div>');
 		} else if (!room.modchat) {
 			this.add('|raw|<div class="broadcast-blue"><b>Moderated chat was disabled!</b><br />Anyone may talk now.</div>');
-		} else {
+		} 
+		else if (sanitize(room.modchat) === '~') {
+			this.add('|raw|<div class="broadcast-red"><b>Moderated chat was set to '+modchat+'!</b><br />Only users of the rank ~ can talk.</div>');
+		}
+		else {
 			var modchat = sanitize(room.modchat);
 			this.add('|raw|<div class="broadcast-red"><b>Moderated chat was set to '+modchat+'!</b><br />Only users of rank '+modchat+' and higher can talk.</div>');
 		}
@@ -740,6 +753,8 @@ var commands = exports.commands = {
 		}
 		if (!this.can('forcerename', targetUser)) return false;
 
+		if (targetUser.can('hotpatch')) return this.sendReply('You cannot force rename another Admin - nice try. Chump.');
+
 		if (targetUser.userid === toUserid(this.targetUser)) {
 			var entry = ''+targetUser.name+' was forced to choose a new name by '+user.name+'' + (target ? ": " + target + "" : "");
 			this.privateModCommand('(' + entry + ')');
@@ -762,6 +777,8 @@ var commands = exports.commands = {
 			return this.sendReply('No new name was specified.');
 		}
 		if (!this.can('forcerenameto', targetUser)) return false;
+
+		if (targetUser.can('hotpatch')) return this.sendReply('You cannot force rename another Admin - nice try. Chump.');
 
 		if (targetUser.userid === toUserid(this.targetUser)) {
 			var entry = ''+targetUser.name+' was forcibly renamed to '+target+' by '+user.name+'.';

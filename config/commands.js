@@ -1121,7 +1121,7 @@ var commands = exports.commands = {
 		if (target === 'frontier'){
 			matched = true;
 			this.sendReplyBox('Phoenix League Battle Frontier:<br /><br />' +
-			'- Battle Frontie® <font color="blue"><b>Yellow</b></font color>: "Dome Ace"<br />' +
+			'- Battle Frontie® <font color="blue"><b>Red</b></font color>: "Place Maven"<br />' +
 			'- Battle Frontie® <font color="purple"><b>Balto</b></font color>: "Tower Tycoon"<br />' +
 			'- Battle Frontie® <font color="green"><b>Maxwel</b></font color>: "Factory Head"<br />' +
 			'- Battle Frontie® <font color="orange"><b>Sonic7</b></font color>: "Hall Master"<br /><br />' +
@@ -1291,15 +1291,14 @@ var commands = exports.commands = {
 			'<img src="http://cdn.bulbagarden.net/upload/e/ec/465.png"><img src="http://cdn.bulbagarden.net/upload/8/84/549.png">');  
 		}
 		//BATTLE FRONTIER
-		if (target === 'yellow') {
+		if (target === 'red') {
 			matched = true;
-			this.sendReplyBox('Battle Frontie® <font color="blue"><b>Yellow</b></font color><br />' +
+			this.sendReplyBox('Battle Frontie® <font color="blue"><b>red</b></font color><br />' +
 			'Battle Type: 2v2<br />' + 
-			'Ace: Porygon2<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/7/74/233.png">' + 
+			'Ace: Darmanitan and Dusknoir<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/c/c8/555.png"><img src="http://cdn.bulbagarden.net/upload/b/b7/477.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- No legendaries<br />' +
-			'- Must have two NU Pokemon<br />');
+			'- Best of 3');
 		}
 		if (target === 'balto') {
 			matched = true;
@@ -1363,16 +1362,17 @@ var commands = exports.commands = {
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Hazards<br />');
 		}
-		if (target === 'ese') {
+		if (target === 'esep') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="gray"><b>Ese</b></font color><br />' +
+			this.sendReplyBox('Gym Leade® <font color="gray"><b>Esep</b></font color><br />' +
 			'Type: Dragon<br />' + 
 			'Region: Saraphia<br />' +
 			'Ace: Latios<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/9/9a/381.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Prankster<br />' +
-			'- No Hazards');
+			'- No Hazards<br />' +
+			'- No Focus Sash');
 		}
 		if (target === 'kolotos') {
 			matched = true;
@@ -1623,24 +1623,6 @@ var commands = exports.commands = {
 	/*********************************************************
 	 * Miscellaneous commands
 	 *********************************************************/
-
-	punny: 'pun',
-	pun: function(target, room, user) {
-		if(!this.canBroadcast) return;
-
-		var puns = ['What happened when the cow tried to jump over a barbed wire fence? Udder destruction.','Cannibals like to meat people.',
-		'When an actress saw her first strands of gray hair, she thought she\'d dye.','My first job was working in an orange juice factory, but I got canned because I couldn\'t concentrate.',
-		'At the supermarket I saw a man and a woman wrapped in a barcode. I asked, "Are you two an item?"','To write with a broken pencil is pointless.',
-		'Where did the king put his armies? In his sleevies.','What\'s the definition of a will? (Come on, it\'s a dead giveaway!)',
-		'Following last week\'s news that Origami Bank had folded, we are hearing that Sumo Bank has gone belly up and Bonsai Bank plans to cut back some of its branches. Karaoke Bank is up for sale and is (you guessed it!) going for a song.',
-		'I used to be a doctor, but then I lost patients.','Did you hear about the man who was tap dancing? He broke his ankle when he fell into the sink.',
-		'Did you hear about the cannibal who was late for dinner? He got the cold shoulder.','A dentist and a manicurist fought tooth and nail.',
-		'In some places fog will never be mist.','I used to be a railroad conductor, but my boss found out I wasn\'t trained.','Corduroy pillows are making headlines'];
-
-		var rand = Math.floor(Math.random()*puns.length);
-
-		return this.sendReply('Pun says: '+puns[rand]);
-	},
 
 	birkal: function(target, room, user) {
 		this.sendReply("It's not funny anymore.");
