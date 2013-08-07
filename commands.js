@@ -675,7 +675,7 @@ var commands = exports.commands = {
 		if (!target) {
 			return this.sendReply('Moderated chat is currently set to: '+room.modchat);
 		}
-		if (!this.can('lockdown') || user.groupName === 'Administrator') {
+		if (!this.can('lockdown')) {
 			if (!this.can('modchat', null, room) || !this.canTalk()) return false;
 		}
 
