@@ -2203,14 +2203,12 @@ exports.BattleFormats = {
 			var points = 0;
 			
 			for (var i=0; i<team.length; i++) {
-				console.log("Pokemon #"+i);
 				var set = team[i];
 				var template = this.getTemplate(set.species);
 				var item = this.getItem(set.item);
 				
 				if(formatPoints[template.tier])
 					points += formatPoints[template.tier];
-				console.log("Points after Format (#"+i+"): "+points);
 				
 				if (set.ability) {
 					var ability = this.getAbility(set.ability);
@@ -2218,7 +2216,6 @@ exports.BattleFormats = {
 					if(abilityPoints[ability.id])
 						points += abilityPoints[ability.id];
 				}
-				console.log("Points after Ability (#"+i+"): "+points);
 
 				if (set.moves) {
 					for (var x=0; x<set.moves.length; x++) {
@@ -2228,13 +2225,11 @@ exports.BattleFormats = {
 							points += movePoints[move.id];
 					}
 				}
-				console.log("Points after Moves (#"+i+"): "+points);
 				
 				if (item) {
 					if(itemPoints[item.id])
 						points += itemPoints[item.id];
 				}
-				console.log("Points after Item (#"+i+"): "+points);
 			}
 
 			var nonDam = 0;
@@ -2244,10 +2239,8 @@ exports.BattleFormats = {
 				var template = this.getTemplate(set.species);
 
 				if (template.tier === 'Uber'){
-					console.log("2 template: "+template.tier);
 					for (var b=0; b<set.moves.length; b++){
 						var base = this.getMove(set.moves[b]).basePower;
-						console.log("3"+b+" base: "+base);
 						if (base === 0){
 							if (nonDam > 1){
 								problems.push("You cannot have more than one non-daming move on an Uber.");
