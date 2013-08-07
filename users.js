@@ -1223,6 +1223,7 @@ function unban(name) {
 		}
 	}
 	if (success) return name;
+	
 	return false;
 }
 function unlock(name, unlocked, noRecurse) {

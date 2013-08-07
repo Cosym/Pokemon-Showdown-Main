@@ -263,7 +263,7 @@ var commands = exports.commands = {
 	modmsg: 'declaremod',
 	moddeclare: 'declaremod',
 	declaremod: function(target, room, user) {
-		if (!target) return this.parse('/declaremod [message] - Also /moddeclare and /modmsg');
+		if (!target) return this.sendReply('/declaremod [message] - Also /moddeclare and /modmsg');
 		if (!this.can('declare', null, room)) return false;
 
 		if (!this.canTalk()) return;
