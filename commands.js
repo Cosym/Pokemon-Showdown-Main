@@ -711,7 +711,7 @@ var commands = exports.commands = {
 			this.add('|raw|<div class="broadcast-blue"><b>Moderated chat was disabled!</b><br />Anyone may talk now.</div>');
 		} 
 		else if (sanitize(room.modchat) === '~') {
-			this.add('|raw|<div class="broadcast-red"><b>Moderated chat was set to '+modchat+'!</b><br />Only users of the rank ~ can talk.</div>');
+			this.add('|raw|<div class="broadcast-red"><b>Moderated chat was set to ~!</b><br />Only users of the rank ~ can talk.</div>');
 		}
 		else {
 			var modchat = sanitize(room.modchat);
