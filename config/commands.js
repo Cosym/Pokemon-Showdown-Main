@@ -1067,6 +1067,14 @@ var commands = exports.commands = {
 			'Example replays:<br />' +
 			'- <a href="http://pokemonshowdown.com/replay/phoenixleague-pointscore-3822">Elite Fou® Cats vs Elite Fou® dvetts</a>');
 	},
+	
+	perseverance: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Perseverance is a format which encourages smart play, and loser is first to lose a Pokemon:<br />' +
+			'- <a href="https://github.com/LynnHikaru/Perseverance-/blob/master/README.md">README: overview of Perseverance</a><br />' +
+			'Example replays:<br />' +
+			'- <a href="http://pokemonshowdown.com/replay/phoenixleague-perseverance-3900">Cosy vs Champion® Lynn</a>');
+	},
 
 	about: function(target, room, user) {
 		if (!this.canBroadcast()) return;

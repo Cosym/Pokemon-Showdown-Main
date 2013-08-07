@@ -91,8 +91,8 @@ exports.BattleFormats = {
 		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview', 'Point System'],
 		banlists: ['Drizzle ++ Swift Swim', 'Soul Dew', 'Arceus', 'Shadow Tag']
 	},
-	perserverance: {
-		name: "Perserverance",
+	perseverance: {
+		name: "Perseverance",
 		section: "Singles",
 
 		effectType: 'Format',
