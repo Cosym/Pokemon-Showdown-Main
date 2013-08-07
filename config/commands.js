@@ -260,6 +260,19 @@ var commands = exports.commands = {
 		this.logModCommand(user.name+' declared '+target);
 	},
 
+	modmsg: 'declaremod',
+	moddeclare: 'declaremod',
+	declaremod: function(target, room, user) {
+		if (!target) return this.parse('/declaremod [message] - Also /moddeclare and /modmsg');
+		if (!this.can('declare', null, room)) return false;
+
+		if (!this.canTalk()) return;
+
+		this.privateModCommand('|raw|<div class="broadcast-red"><b><font size=1><i>Private Auth (Driver +) declare from '+user.name+'<br /></i></font size>'+target+'</b></div>');
+
+		this.logModCommand(user.name+' mod declared '+target);
+	},
+
 	flogout: 'forcelogout',
 	forcelogout: function(target, room, user) {
 		if(!user.can('hotpatch')) return;
@@ -1127,7 +1140,7 @@ var commands = exports.commands = {
 			'<img src="http://cdn.bulbagarden.net/upload/c/c4/475.png"><img src="http://cdn.bulbagarden.net/upload/0/07/282.png"' +
 			'<br /><br />Rules of Battle:<br />' + 
 			'- OU (First time faced)<br />' + 
-			'- Double Battle (Second time faced)<br />' +
+			'- Perseverance Battle (Second time faced)<br />' +
 			'- No hazards<br />' + 
 			'- No legendaries<br />' +
 			'- Original Strategies (ex.- No smogon sets, etc.)<br />' + 
