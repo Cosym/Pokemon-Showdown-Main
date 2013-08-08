@@ -226,19 +226,21 @@ var commands = exports.commands = {
 		if (!target) return this.parse('/help gdeclare');
 		if (!this.can('lockdown')) return false;
 
+		var roomName = (targetRoom.isPrivate)? 'a private room' : room.id;
+
 		if (cmd === 'gdeclare'){
 			for (var id in Rooms.rooms) {
-				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b><font size=1><i>Global declare from '+room.id+'<br /></i></font size>'+target+'</b></div>');
+				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b><font size=1><i>Global declare from '+roomName+'<br /></i></font size>'+target+'</b></div>');
 			}
 		}
 		if (cmd === 'gdeclarered'){
 			for (var id in Rooms.rooms) {
-				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-red"><b><font size=1><i>Global declare from '+room.id+'<br /></i></font size>'+target+'</b></div>');
+				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-red"><b><font size=1><i>Global declare from '+roomName+'<br /></i></font size>'+target+'</b></div>');
 			}
 		}
 		else if (cmd === 'gdeclaregreen'){
 			for (var id in Rooms.rooms) {
-				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-green"><b><font size=1><i>Global declare from '+room.id+'<br /></i></font size>'+target+'</b></div>');
+				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-green"><b><font size=1><i>Global declare from '+roomName+'<br /></i></font size>'+target+'</b></div>');
 			}
 		}
 		this.logEntry(user.name + ' used /gdeclare');
@@ -340,6 +342,14 @@ var commands = exports.commands = {
 
 		targetUser.mute(room.id, 24*60*60*1000, true);
 	},
+
+	/*away: function(target, room, user) {
+		this.sendReply(user.name+' is now away. '+ (target ? " (" + target + ")" : ""));
+
+		var awayName = user.name + ' - Away';
+
+		user.forceRename(awayName, undefined, true);
+	},*/
 
 	/*********************************************************
 	 * Shortcuts
@@ -1532,8 +1542,8 @@ var commands = exports.commands = {
 			this.sendReplyBox('Gym Leade® <font color="green"><b>Vale</b></font color><br />' +
 			'Type: Bug<br />' + 
 			'Region: Celestia<br />' +
-			'Ace: Scizor and Heracross<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/6/64/212.png"><img src="http://cdn.bulbagarden.net/upload/d/d3/214.png">' + 
+			'Ace: Syther and Heracross<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/8/81/123.png"><img src="http://cdn.bulbagarden.net/upload/d/d3/214.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Hazards<br />' +
 			'- Only two OU Pokemon<br />' +
