@@ -298,10 +298,12 @@ function canTalk(user, room, connection, message) {
 
 		if (room && room.id === 'lobby') {
 			var normalized = message.trim();
-			if ((normalized === user.lastMessage) &&
-					((Date.now() - user.lastMessageTime) < MESSAGE_COOLDOWN)) {
-				connection.popup("You can't send the same message again so soon.");
-				return false;
+			if (!user.group === '~') {
+				if ((normalized === user.lastMessage) &&
+						((Date.now() - user.lastMessageTime) < MESSAGE_COOLDOWN)) {
+					connection.popup("You can't send the same message again so soon.");
+					return false;
+				}
 			}
 			user.lastMessage = message;
 			user.lastMessageTime = Date.now();

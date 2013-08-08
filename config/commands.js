@@ -343,6 +343,17 @@ var commands = exports.commands = {
 		targetUser.mute(room.id, 24*60*60*1000, true);
 	},
 
+	getid: function(target, room, user) {
+		if (!target) return this.parse('/getid [username] - To get the raw id of the user');
+
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+
+		if (!this.can('lock')) return false;
+
+		this.sendReply('The ID of the target is: ' + targetUser);
+	},
+
 	/*away: function(target, room, user) {
 		this.sendReply(user.name+' is now away. '+ (target ? " (" + target + ")" : ""));
 
@@ -1110,6 +1121,16 @@ var commands = exports.commands = {
 			'- <a href="http://pokemonshowdown.com/replay/phoenixleague-perseverance-3900">Cosy vs Champion® Lynn</a>');
 	},
 
+	leagueinfo: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('When challenging the League, you are permitted a single team. That team may not be altered throughout your League Challenge.' +
+		'The only time it is permitted is to be changed, is if a pokemon conflicts with the rules of a Gym, Battle Frontier or Elite Four (Gym rules can be' +
+		' located by doing /about [gym leaders name], for an Elite Four\'s rules, do /about [elite fours name] and /about [frontiers name]). ' +
+		'<br /><br />If something conflicts, you may only change the conflicting move set, item, ability, or level, you may not change the pokemon. There are also no ' +
+		'legendaries permitted for challenging, due to the fact that challengers are not restricted to monotype teams. Also, rules only apply to the ' +
+		'challengers. Not following these rules will end in losing badges, or disqualification.');
+	},
+
 	about: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		target = target.toLowerCase();
@@ -1644,6 +1665,19 @@ var commands = exports.commands = {
 	/*********************************************************
 	 * Miscellaneous commands
 	 *********************************************************/
+
+	/*punch: function(target, room, user, connection) {
+		target = this.canTalk(target);
+		if (!target) return;
+
+		var phrases = ['in their silly face!', 'right on the nose!', 'like the animal they are!', 'like a panzy.', 'with utter humiliation.', + 
+		'like a mad man... or woman!', 'right in the chin!', 'out cold!', 'and butterflies appear :D', 'well, violence is not the solution!', +
+		'Cosy punches you for punching ' + target + '!'];
+
+		var i = Math.floor(Math.random() * phrases.length);
+
+		return '/me punches ' + target + ' ' + phrases[i];
+	},*/
 
 	birkal: function(target, room, user) {
 		this.sendReply("It's not funny anymore.");

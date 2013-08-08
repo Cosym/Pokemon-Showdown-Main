@@ -457,7 +457,7 @@ var commands = exports.commands = {
 	um: 'unmute',
 	unmute: function(target, room, user) {
 		if (!target) return this.parse('/help something');
-		if (!this.canTalk()) return false;
+		if (!user.group === '~') if (!this.canTalk()) return false;
 		var targetid = toUserid(target);
 		var targetUser = Users.get(target);
 		if (!targetUser) {
@@ -506,7 +506,7 @@ var commands = exports.commands = {
 	unlock: function(target, room, user) {
 		if (!target) return this.parse('/help unlock');
 		if (!this.can('lock')) return false;
-		if (!this.canTalk()) return false;
+		if (!user.group === '~') if (!this.canTalk()) return false;
 
 		var unlocked = Users.unlock(target);
 
