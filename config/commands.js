@@ -226,7 +226,7 @@ var commands = exports.commands = {
 		if (!target) return this.parse('/help gdeclare');
 		if (!this.can('lockdown')) return false;
 
-		var roomName = (targetRoom.isPrivate)? 'a private room' : room.id;
+		var roomName = (room.isPrivate)? 'a private room' : room.id;
 
 		if (cmd === 'gdeclare'){
 			for (var id in Rooms.rooms) {
