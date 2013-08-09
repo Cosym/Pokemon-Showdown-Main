@@ -612,11 +612,7 @@ var commands = exports.commands = {
 		target.updateIdentity();
 
 		this.sendReply(target + '\'s identity has been updated.');
-<<<<<<< HEAD
 	},
-=======
-	}
->>>>>>> c60225a8e00090c42e9a95383c4507ed5060a8ca
 
 	/*********************************************************
 	 * Moderating: Other
