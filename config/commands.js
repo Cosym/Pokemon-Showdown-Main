@@ -376,7 +376,7 @@ var commands = exports.commands = {
 			var awayName = user.name + ' - Away';
 			user.forceRename(awayName, undefined, true);
 			if (this.can('lock')) {
-				this.add(originalName +' is now away. '+ (target ? " (" + target + ")" : ""));
+				this.addModCommand('|raw|-- <b><font color="#FF7E00">' + originalName +'</font color></b> is now away. '+ (target ? " (" + target + ")" : ""));
 			}
 			else this.sendReply('You are now set as away (Ignore the access denied)');
 
@@ -394,7 +394,7 @@ var commands = exports.commands = {
 
 			user.forceRename(newName, undefined, true);
 			if (this.can('lock')) {
-				this.add(newName+' is no longer away');
+				this.addModCommand('|raw|-- <b><font color="#FF7E00">' + newName + '</font color></b> is no longer away');
 			}
 			else this.sendReply('You are no longer set as away (Ignore the access denied)');
 
