@@ -285,6 +285,22 @@ function canTalk(user, room, connection, message) {
 	}
 
 	if (message) {
+
+		if (user.isAway === true) {
+			user.isAway = false;
+			var name = user.name;
+
+			var newName = name.substr(0, name.length - 7);
+
+			user.forceRename(newName, undefined, true);
+			if (user.can('lock')) {
+				connection.sendTo(room, '|raw|-- <b><font color="#4F86F7">' + newName + '</font color></b> is no longer away');
+			}
+			else connection.sendTo(user, 'You are no longer set as away (Ignore the access denied)');
+		}
+	}
+
+	if (message) {
 		if (message.length > MAX_MESSAGE_LENGTH && !user.can('ignorelimits')) {
 			connection.popup("Your message is too long:\n\n"+message);
 			return false;
