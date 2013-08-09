@@ -343,7 +343,7 @@ var commands = exports.commands = {
 		targetUser.mute(room.id, 24*60*60*1000, true);
 	},
 
-	getid: function(target, room, user) {
+	showuserid: function(target, room, user) {
 		if (!target) return this.parse('/getid [username] - To get the raw id of the user');
 
 		target = this.splitTarget(target);
@@ -352,6 +352,20 @@ var commands = exports.commands = {
 		if (!this.can('lock')) return false;
 
 		this.sendReply('The ID of the target is: ' + targetUser);
+	},
+
+	showrooms: function(target, room, user) {
+		if (!this.can('hotpatch')) return false;
+
+		var allRooms = ['All rooms on the server:'];
+
+		for(var i in Rooms.rooms) {
+			var roomid = Rooms.rooms[i].id;
+
+			if(roomid !== 'global') allRooms = allRooms + '  ' + roomid;
+		}
+		allRooms = allRooms + '. ';
+		this.sendReply(allRooms);
 	},
 
 	/*away: function(target, room, user) {
