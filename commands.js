@@ -604,6 +604,16 @@ var commands = exports.commands = {
 		this.addModCommand(user.name+' unbanned the '+(target.charAt(target.length-1)==='*'?'IP range':'IP')+': '+target);
 	},
 
+	uui: 'userupdate',
+	userupdate: function(target, room, user) {
+		if (!target) return this.sendReply('/userupdate [username] OR /uui [username] - Updates the user identity fixing the users shown group.');
+		if (!this.can('hotpatch')) return false;
+
+		target.updateIdentity();
+
+		this.sendReply(target + '\'s identity has been updated.');
+	},
+
 	/*********************************************************
 	 * Moderating: Other
 	 *********************************************************/
