@@ -1292,14 +1292,12 @@ var commands = exports.commands = {
 		user.makeChallenge(targetUser, target);
 	},
 
-	away: 'blockchallenges',
 	idle: 'blockchallenges',
 	blockchallenges: function(target, room, user) {
 		user.blockChallenges = true;
 		this.sendReply('You are now blocking all incoming challenge requests.');
 	},
 
-	back: 'allowchallenges',
 	allowchallenges: function(target, room, user) {
 		user.blockChallenges = false;
 		this.sendReply('You are available for challenges from now on.');

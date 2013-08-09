@@ -208,6 +208,8 @@ var User = (function () {
 	User.prototype.blockChallenges = false;
 	User.prototype.lastConnected = 0;
 
+	User.prototype.isAway = false;
+
 	User.prototype.sendTo = function(roomid, data) {
 		if (roomid && roomid.id) roomid = roomid.id;
 		if (roomid && roomid !== 'global' && roomid !== 'lobby') data = '>'+roomid+'\n'+data;

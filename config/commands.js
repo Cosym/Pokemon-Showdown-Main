@@ -368,13 +368,40 @@ var commands = exports.commands = {
 		this.sendReply(allRooms);
 	},
 
-	/*away: function(target, room, user) {
-		this.sendReply(user.name+' is now away. '+ (target ? " (" + target + ")" : ""));
+	afk: 'away',
+	away: function(target, room, user) {
 
-		var awayName = user.name + ' - Away';
+		if (!user.isAway) {
+			var originalName = user.name;
+			var awayName = user.name + ' - Away';
+			user.forceRename(awayName, undefined, true);
+			if (this.can('lock')) {
+				this.add(originalName +' is now away. '+ (target ? " (" + target + ")" : ""));
+			}
+			else this.sendReply('You are now set as away (Ignore the access denied)');
 
-		user.forceRename(awayName, undefined, true);
-	},*/
+			user.isAway = true;
+		}
+		else return this.sendReply('You are already set as away, type /back if you are now back');
+	},
+
+	back: function(target, room, user) {
+
+		if (user.isAway) {
+			var name = user.name;
+
+			var newName = name.substr(0, name.length - 7);
+
+			user.forceRename(newName, undefined, true);
+			if (this.can('lock')) {
+				this.add(newName+' is no longer away');
+			}
+			else this.sendReply('You are no longer set as away (Ignore the access denied)');
+
+			user.isAway = false;
+		}
+		else return this.sendReply('You are not set as away');
+	},
 
 	/*********************************************************
 	 * Shortcuts
@@ -1839,13 +1866,13 @@ var commands = exports.commands = {
 			this.sendReply('/calc - Provides a link to a damage calculator');
 			this.sendReply('!calc - Shows everyone a link to a damage calculator. Requires: + % @ & ~');
 		}
-		if (target === 'all' || target === 'blockchallenges' || target === 'away' || target === 'idle') {
+		if (target === 'all' || target === 'blockchallenges' || target === 'idle') {
 			matched = true;
-			this.sendReply('/away - Blocks challenges so no one can challenge you. Deactivate it with /back.');
+			this.sendReply('/blockchallenges - Blocks challenges so no one can challenge you. Deactivate it with /back.');
 		}
-		if (target === 'all' || target === 'allowchallenges' || target === 'back') {
+		if (target === 'all' || target === 'allowchallenges') {
 			matched = true;
-			this.sendReply('/back - Unlocks challenges so you can be challenged again. Deactivate it with /away.');
+			this.sendReply('/allowchallenges - Unlocks challenges so you can be challenged again. Deactivate it with /away.');
 		}
 		if (target === 'all' || target === 'faq') {
 			matched = true;
