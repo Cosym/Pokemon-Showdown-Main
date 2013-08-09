@@ -12,6 +12,10 @@
 const TIMEOUT_DEALLOCATE = 15*60*1000;
 const REPORT_USER_STATS_INTERVAL = 1000*60*10;
 
+
+//For per room bans - Currently not in use
+var bannedIps = {};
+
 var modlog = modlog || fs.createWriteStream('logs/modlog.txt', {flags:'a+'});
 
 var GlobalRoom = (function() {

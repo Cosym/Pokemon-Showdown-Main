@@ -403,6 +403,39 @@ var commands = exports.commands = {
 		else return this.sendReply('You are not set as away');
 	},
 
+	//CURRENTLY NOT IN USE AND NOT READY TO BE USED
+	/*roomban: function(target, room, user) {
+		if (!target) return this.sendReply('/roomban [username] - Bans a user from the current room. Requres: @, & or ~');
+
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+		if (!targetUser) {
+			return this.sendReply('User '+this.targetUsername+' not found.');
+		}
+		if (!this.can('ban', targetUser)) return false;
+
+		if (Rooms.checkBanned(targetUser.latestIp) && !target && !targetUser.connected) {
+			var problem = ' but was already banned';
+			return this.privateModCommand('('+targetUser.name+' would be banned by '+user.name+problem+'.)');
+		}
+
+		var room = room.name;
+
+		targetUser.popup(user.name+" has banned you from " + room + '. This is not a full ban, just a ban from that room. You can appeal against it to a @, & or ~');
+
+		this.addModCommand(""+targetUser.name+" was banned by "+user.name+" from the current room." + (target ? " (" + target + ")" : ""));
+		var alts = targetUser.getAlts();
+		if (alts.length) {
+			this.addModCommand(""+targetUser.name+"'s alts were also banned from the current room: "+alts.join(", "));
+			for (var i = 0; i < alts.length; ++i) {
+				this.add('|unlink|' + toId(alts[i]));
+			}
+		}
+
+		//this.add('|unlink|' + targetUser.userid);
+		Rooms.ban(targetUser, room);
+	},*/
+
 	/*********************************************************
 	 * Shortcuts
 	 *********************************************************/
