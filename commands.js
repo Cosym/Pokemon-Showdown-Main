@@ -608,10 +608,11 @@ var commands = exports.commands = {
 	userupdate: function(target, room, user) {
 		if (!target) return this.sendReply('/userupdate [username] OR /uui [username] - Updates the user identity fixing the users shown group.');
 		if (!this.can('hotpatch')) return false;
+		if (target) return this.sendReply('Bugged, leaving off for now');
+		
+		//target.updateIdentity();
 
-		target.updateIdentity();
-
-		this.sendReply(target + '\'s identity has been updated.');
+		//this.sendReply(target + '\'s identity has been updated.');
 	},
 
 	/*********************************************************
