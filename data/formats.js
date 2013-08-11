@@ -775,6 +775,7 @@ exports.BattleFormats = {
 		mod: 'gen3',
 		effectType: 'Format',
 		challengeShow: true,
+		debug: true,
 		ruleset: ['Pokemon', 'HP Percentage Mod'],
 		banlist: []
 	},
@@ -798,6 +799,7 @@ exports.BattleFormats = {
 		challengeShow: true,
 		searchShow: true,
 		isTeambuilderFormat: true,
+		debug: true,
 		ruleset: ['Pokemon', 'Standard'],
 		banlist: ['Uber']
 	},
