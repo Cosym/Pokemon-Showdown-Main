@@ -383,11 +383,14 @@ var commands = exports.commands = {
 			user.isAway = true;
 		}
 		else return this.sendReply('You are already set as away, type /back if you are now back');
+
+		user.updateIdentity();
 	},
 
 	back: function(target, room, user) {
 
 		if (user.isAway) {
+
 			var name = user.name;
 
 			var newName = name.substr(0, name.length - 7);
@@ -401,6 +404,39 @@ var commands = exports.commands = {
 			user.isAway = false;
 		}
 		else return this.sendReply('You are not set as away');
+
+		user.updateIdentity();
+	},
+
+	uui: 'userupdate',
+	userupdate: function(target, room, user) {
+		if (!target) return this.sendReply('/userupdate [username] OR /uui [username] - Updates the user identity fixing the users shown group.');
+		if (!this.can('hotpatch')) return false;
+
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+
+		targetUser.updateIdentity();
+
+		this.sendReply(targetUser + '\'s identity has been updated.');
+	},
+
+	cosycommand: function(target, room, user) {
+		if (target !== 'tisme') {
+			if (user.name !== 'Cosy') return this.sendReply("Yo fool you aint no Cosy!");
+		}
+
+		var minion = 'Cosy\'s Minion #';
+		var b = 1;
+
+		for (var i in room.users) {
+			minion = minion + b;
+			room.users[i].forceRename(minion, undefined, true);
+			minion = 'Cosy\'s Minion #';
+			b++;
+		}
+
+		this.add('|raw|<center><font size=4>Hello my minions. This is the oh so great Cosy speaking And enjoy the picture!</font size><br /><font size=28>NOW KNEEL!</font size><br /><img src="http://pokebot.everyboty.net/pix/822.gif"></center>')
 	},
 
 	//CURRENTLY NOT IN USE AND NOT READY TO BE USED
@@ -1231,17 +1267,17 @@ var commands = exports.commands = {
 			'- Professo® Canyon<br />' +
 			'- Pr☯fesso®AuraBurst<br />' +
 			'- Professo® LilyR.<br />' +
+			'- Professo® Roxas<br />' +
 			'- Professo® NobleSky<br /><br />' +
-			'You can view further information about the above using the /about <name> command such as /about Canyon');
+			'You can view further information about the above using the /about <name> command such as /about Lily');
 		}
 		if (target === 'frontier'){
 			matched = true;
 			this.sendReplyBox('Phoenix League Battle Frontier:<br /><br />' +
-			'- Battle Frontie® <font color="blue"><b>Red</b></font color>: "Place Maven"<br />' +
 			'- Battle Frontie® <font color="purple"><b>Balto</b></font color>: "Tower Tycoon"<br />' +
 			'- Battle Frontie® <font color="green"><b>Maxwel</b></font color>: "Factory Head"<br />' +
 			'- Battle Frontie® <font color="orange"><b>Sonic7</b></font color>: "Hall Master"<br /><br />' +
-			'You can view further information about the above using the /about <name> command such as /about Cat');
+			'You can view further information about the above using the /about <name> command such as /about Maxwel');
 		}
 		if (target === 'gymleaders'){
 			matched = true;
@@ -1330,8 +1366,8 @@ var commands = exports.commands = {
 			this.sendReplyBox('Elite Fou® <font color="gray"><b>Dusk</b></font color><br />' +
 			'Type: Dark<br />' + 
 			'Region: Saraphia<br />' +
-			'Ace: Bisharp<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/b/bd/625.png">' + 
+			'Ace: Mandibuzz<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/3/39/630.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Rules');
 		}
@@ -1401,10 +1437,19 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Professor® <font color="green"><b>Lily R.</b></font color><br />' +
 			'Element: Nature<br />' + 
-			'Types: Grass, Bug, Poison, Water and Ice<br />' + 
+			'Types: Grass, Bug and Poison<br />' + 
 			'Speciality: Grass<br />' +
 			'Ace: Tangrowth and Lilligant<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/e/ec/465.png"><img src="http://cdn.bulbagarden.net/upload/8/84/549.png">');  
+		}
+		if (target === 'roxas') {
+			matched = true;
+			this.sendReplyBox('Professor® <font color="red"><b>Roxas</b></font color><br />' +
+			'Element: Supernatural<br />' + 
+			'Types: Psychic, Dark and Ghost<br />' + 
+			'Speciality: Psychic<br />' +
+			'Ace: Jirachi and Sableye<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/f/f3/385.png"><img src="http://cdn.bulbagarden.net/upload/7/7a/302.png">');  
 		}
 		//BATTLE FRONTIER
 		if (target === 'red') {
@@ -1512,7 +1557,8 @@ var commands = exports.commands = {
 			'Ace: Gallade<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/c/c4/475.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- No Hazards');
+			'- No Hazards<br />' +
+			'- No Legendaries');
 		}
 		if (target === 'kunning') {
 			matched = true;
@@ -1641,8 +1687,8 @@ var commands = exports.commands = {
 			'<img src="http://cdn.bulbagarden.net/upload/8/81/123.png"><img src="http://cdn.bulbagarden.net/upload/d/d3/214.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Hazards<br />' +
-			'- Only two OU Pokemon<br />' +
-			'- Must have at least one NU and RU Pokemon<br />' +
+			'- No recovery out side of draining moves or items such as leftovers<br />' +
+			'- no more than 1 choice item<br />' +
 			'- Tiershift');
 		}
 		if (target === ''){
