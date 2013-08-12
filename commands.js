@@ -375,7 +375,7 @@ var commands = exports.commands = {
 		if (!targetRoom) {
 			return this.sendReply("The room '" + target + "' does not exist.");
 		}
-		if (!user.can('kick', targetUser, room)) return false;
+		if (!this.can('kick', targetUser, room)) return false;
 		if (!targetUser || !targetUser.connected) {
 			return this.sendReply('User '+this.targetUsername+' not found.');
 		}
@@ -646,7 +646,7 @@ var commands = exports.commands = {
 			return this.sendReply('Group \'' + nextGroup + '\' does not exist.');
 		}
 		if (!user.checkPromotePermission(currentGroup, nextGroup)) {
-			return this.sendReply('/promote - Access denied.');
+			return this.sendReply('/' + cmd + ' - Access denied.');
 		}
 
 		var isDemotion = (config.groups[nextGroup].rank < config.groups[currentGroup].rank);

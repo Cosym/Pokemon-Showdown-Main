@@ -117,6 +117,38 @@ exports.BattleMovedex = {
 			}
 		}
 	},
+	lightscreen: {
+		inherit: true,
+		effect: {
+			duration: 5,
+			onModifySpD: function(spd) {
+				return spd * 2;
+			},
+			onStart: function(side) {
+				this.add('-sidestart',side,'move: Light Screen');
+			},
+			onResidualOrder: 21,
+			onEnd: function(side) {
+				this.add('-sideend',side,'move: Light Screen');
+			}
+		}
+	},
+	reflect: {
+		inherit: true,
+		effect: {
+			duration: 5,
+			onModifyDef: function(def) {
+				return def * 2;
+			},
+			onStart: function(side) {
+				this.add('-sidestart',side,'Reflect');
+			},
+			onResidualOrder: 21,
+			onEnd: function(side) {
+				this.add('-sideend',side,'Reflect');
+			}
+		}
+	},
 	rest: {
 		inherit: true,
 		onHit: function(target) {
@@ -246,5 +278,13 @@ exports.BattleMovedex = {
 		// Disable does not build
 		inherit: true
 	},
-	magikarpsrevenge: null
+	roar: {
+		inherit: true,
+		priority: -1
+	},
+	magikarpsrevenge: null,
+	whirlwind: {
+		inherit: true,
+		priority: -1
+	},
 };

@@ -394,7 +394,7 @@ exports.BattleFormats = {
 		searchShow: true,
 		rated: true,
 		ruleset: ['Pokemon', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Evasion Abilities Clause', 'HP Percentage Mod'],
-		banlist: ['Unreleased', 'Illegal', 'Dark Void', 'Soul Dew',
+		banlist: ['Unreleased', 'Illegal', 'Dark Void', 'Soul Dew', 'Sky Drop',
 			'Mewtwo',
 			'Lugia',
 			'Ho-Oh',
@@ -775,6 +775,7 @@ exports.BattleFormats = {
 		mod: 'gen3',
 		effectType: 'Format',
 		challengeShow: true,
+		debug: true,
 		ruleset: ['Pokemon', 'HP Percentage Mod'],
 		banlist: []
 	},
@@ -798,6 +799,7 @@ exports.BattleFormats = {
 		challengeShow: true,
 		searchShow: true,
 		isTeambuilderFormat: true,
+		debug: true,
 		ruleset: ['Pokemon', 'Standard'],
 		banlist: ['Uber']
 	},
