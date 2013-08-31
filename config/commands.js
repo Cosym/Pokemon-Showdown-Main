@@ -1307,7 +1307,7 @@ var commands = exports.commands = {
 			this.sendReplyBox('Champion® <font color="purple"><b>Lynn</b></font color><br />' +
 			'Type: Psychic<br />' + 
 			'Ace: Gardevoir and Gallade<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/c/c4/475.png"><img src="http://cdn.bulbagarden.net/upload/0/07/282.png"' +
+			'<img src="http://sprites.pokecheck.org/i/282.gif"><img src="http://sprites.pokecheck.org/i/475.gif"' +
 			'<br /><br />Rules of Battle:<br />' + 
 			'- OU (First time faced)<br />' + 
 			'- Perseverance Battle (Second time faced)<br />' +
@@ -1525,16 +1525,18 @@ var commands = exports.commands = {
 			'<img src="http://cdn.bulbagarden.net/upload/c/c4/475.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Hazards<br />' +
-			'- No Legendaries');
+			'- OU');
 		}
-		if (target === 'kunning') {
+		if (target === 'xman') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="red"><b>Kunning</b></font color><br />' +
+			this.sendReplyBox('Gym Leade® <font color="red"><b>Xman</b></font color><br />' +
 			'Type: Fire<br />' + 
 			'Region: Celestia<br />' +
-			'Ace: Darmanitan<br />' + 
+			'Ace: Infernape<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/4/43/Spr_5b_555.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
+			'- No Baton Pass<br />' +
+			'- No Stalling<br />' +
 			'- No Hazards');
 		}
 		if (target === 'gage') {
@@ -1545,7 +1547,7 @@ var commands = exports.commands = {
 			'Ace: Drifblim<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/b/b4/426.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Tiershift<be />' +
+			'- Tiershift<br />' +
 			'- Best of Three<br />' +
 			'- No Hazards');
 		}
@@ -1572,16 +1574,15 @@ var commands = exports.commands = {
 			'- No healing move other than slack off<br />' +
 			'- Only stealth rocks as hazards');
 		}
-		if (target === 'chynn') {
+		if (target === 'derp') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="teal"><b>Chynn</b></font color><br />' +
+			this.sendReplyBox('Gym Leade® <font color="teal"><b>Derp</b></font color><br />' +
 			'Type: Ice<br />' + 
 			'Region: Saraphia<br />' +
-			'Ace: Cloyster and Weavile<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/8/88/091.png"><img src="http://cdn.bulbagarden.net/upload/9/97/461.png">' + 
+			'Ace: Jynx<br />' + 
+			'http://cdn.bulbagarden.net/upload/a/a8/124.png' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- No mascot legendaries<br />' +
-			'- OU<br />');
+			'- No Hazards');
 		}
 		if (target === 'jzb') {
 			matched = true;
@@ -1615,17 +1616,19 @@ var commands = exports.commands = {
 			'Ace: Cradily<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/6/67/346.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
+			'- OU<br />' +
 			'- No Prankster');
 		}
-		if (target === 'omni') {
+		if (target === 'ren11') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="lilac"><b>Omni</b></font color><br />' +
+			this.sendReplyBox('Gym Leade® <font color="lilac"><b>Ren11</b></font color><br />' +
 			'Type: Psychic<br />' + 
 			'Region: Celestia<br />' +
-			'Ace: Gallade<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/c/c4/475.png">' + 
+			'Ace: Reuniclus and Slowbro<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/6/63/579.png"><img src="http://cdn.bulbagarden.net/upload/b/b8/080.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- No Rules');
+			'- No Legendaries<br />' +
+			'- OU');
 		}
 		if (target === 'jyph') {
 			matched = true;
@@ -1638,9 +1641,9 @@ var commands = exports.commands = {
 			'- OU Battle<br />' +
 			'- No Entry Hazards');
 		}
-		if (target === 'fin') {
+		if (target === 'banded') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="blue"><b>Fin</b></font color><br />' +
+			this.sendReplyBox('Gym Leade® <font color="blue"><b>Banded</b></font color><br />' +
 			'Type: Water<br />' + 
 			'Region: Celestia<br />' +
 			'Ace: Starmie<br />' + 
@@ -1684,11 +1687,11 @@ var commands = exports.commands = {
 			this.sendReplyBox('Saraphia Region Gym Leaders:<br /><br />' +
 			'- Gym Leade® <font color="purple"><b>Dvetts</b></font color><br />' +
 			'- Gym Leade® <font color="gray"><b>Jyph</b></font color><br />' +
-			'- Gym Leade® <font color="teal"><b>Chynn</b></font color><br />' +
-			'- Gym Leade® <font color="green"><b>Tenor</b></font color><br />' +
+			'- Gym Leade® <font color="teal"><b>Derp</b></font color><br />' +
+			'- Gym Leade® <font color="green"><b>Vale</b></font color><br />' +
 			'- Gym Leade® <font color="green"><b>Slayer</b></font color><br />' +
 			'- Gym Leade® <font color="brown"><b>GBS</b></font color><br />' +
-			'- Gym Leade® <font color="purple"><b>Ese</b></font color><br />' +
+			'- Gym Leade® <font color="purple"><b>Esep</b></font color><br />' +
 			'- Gym Leade® <font color="brown"><b>Darny</b></font color><br /><br />' +
 			'You can view further information about the above using the /about <name> command such as /about GBS');
 		}
@@ -1715,14 +1718,13 @@ var commands = exports.commands = {
 			'- Gym Leade® <font color="gray"><b>Seto</b></font color><br />' +
 			'- Gym Leade® <font color="gray"><b>JZB</b></font color><br />' +
 			'- Gym Leade® <font color="green"><b>Vale</b></font color><br />' +
-			'- Gym Leade® <font color="yellow"><b>Kolotos</b></font color><br />' +
-			'- Gym Leade® <font color="orange"><b>Drak</b></font color><br />' +
-			'- Gym Leade® <font color="lilac"><b>Barida</b></font color><br />' +
-			'- Gym Leade® <font color="lilac"><b>Omni</b></font color><br />' +
-			'- Gym Leade® <font color="blue"><b>Fin</b></font color><br />' +
-			'- Gym Leade® <font color="red"><b>Kunning</b></font color><br />' +
+			'- Gym Leade® <font color="yellow"><b>Prodigy</b></font color><br />' +
+			'- Gym Leade® <font color="lilac"><b>Gage</b></font color><br />' +
+			'- Gym Leade® <font color="lilac"><b>Ren11</b></font color><br />' +
+			'- Gym Leade® <font color="blue"><b>Banded</b></font color><br />' +
+			'- Gym Leade® <font color="red"><b>Xman</b></font color><br />' +
 			'- Gym Leade® <font color="purple"><b>Dimentio</b></font color><br /><br />' +
-			'You can view further information about the above using the /about <name> command such as /about Fin');	
+			'You can view further information about the above using the /about <name> command such as /about JZB');	
 		}
 		if (target === ''){
 			}
