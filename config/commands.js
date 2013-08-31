@@ -1527,17 +1527,15 @@ var commands = exports.commands = {
 			'- No Hazards<br />' +
 			'- OU');
 		}
-		if (target === 'xman') {
+		if (target === 'kunning') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="red"><b>Xman</b></font color><br />' +
+			this.sendReplyBox('Gym Leade® <font color="red"><b>Kunning</b></font color><br />' +
 			'Type: Fire<br />' + 
 			'Region: Celestia<br />' +
-			'Ace: Infernape<br />' + 
+			'Ace: Darmanitan<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/4/43/Spr_5b_555.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- No Baton Pass<br />' +
-			'- No Stalling<br />' +
-			'- No Hazards');
+			'- None');
 		}
 		if (target === 'gage') {
 			matched = true;
@@ -1580,7 +1578,7 @@ var commands = exports.commands = {
 			'Type: Ice<br />' + 
 			'Region: Saraphia<br />' +
 			'Ace: Jynx<br />' + 
-			'http://cdn.bulbagarden.net/upload/a/a8/124.png' + 
+			'<img src="http://cdn.bulbagarden.net/upload/a/a8/124.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Hazards');
 		}
