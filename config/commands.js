@@ -1336,7 +1336,7 @@ var commands = exports.commands = {
 			'- Maximum of one shared type<br />' +
 			'- Nothing below Lvl. 50');
 		}
-		if (target === 'cats') {
+		if (target === 'cats' || target === 'catknights') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="orange"><b>Cats</b></font color><br />' +
 			'Type: Fighting<br />' + 
@@ -1349,17 +1349,18 @@ var commands = exports.commands = {
 			'- No Ubers or Legendaries<br />' +
 			'- Best 2 out of 3');
 		}
-		if (target === 'dvetts') {
+		if (target === 'riley') {
 			matched = true;
-			this.sendReplyBox('Elite Fou® <font color="purple"><b>Dvetts</b></font color><br />' +
-			'Type: Poison<br />' + 
-			'Region: Celestia<br />' +
-			'Ace: Roserade<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/4/42/407.png">' + 
+			this.sendReplyBox('Elite Fou® <font color="Purple"><b>Riley</b></font color><br />' +
+			'Type: Psychic<br />' + 
+			'Region: Saraphia<br />' +
+			'Ace: Wobbuffet<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/c/c0/202.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- All battles in tiershift<br />' +
-			'- No permanent weather<br />' +
-			'- Only ONE Choiced Pokemon (Can be Scarf, Specs or Band)<br />');
+			'- Tiershift<br />' +
+			'- No Legendaries<br />' +
+			'- No Hazards<br />' +
+			'- 1 replay with the Psychic Gym Leader required');
 		}
 		if (target === 'caster') {
 			matched = true;
@@ -1382,19 +1383,6 @@ var commands = exports.commands = {
 			'<img src="http://cdn.bulbagarden.net/upload/3/39/630.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- No Rules');
-		}
-		if (target === 'riley') {
-			matched = true;
-			this.sendReplyBox('Elite Fou® <font color="Purple"><b>Riley</b></font color><br />' +
-			'Type: Psychic<br />' + 
-			'Region: Saraphia<br />' +
-			'Ace: Wobbuffet<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/c/c0/202.png">' + 
-			'<br /><br />Rules of Battle:<br />' + 
-			'- Tiershift<br />' +
-			'- No Legendaries<br />' +
-			'- No Hazards<br />' +
-			'- 1 replay with the Psychic Gym Leader required');
 		}
 		if (target === 'archer') {
 			matched = true;
@@ -1638,15 +1626,17 @@ var commands = exports.commands = {
 			'- No legendaries<br />' +
 			'- No hazards');
 		}
-		if (target === 'kuhb') {
+		if (target === 'dvetts') {
 			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="purple"><b>Kuhb</b></font color><br />' +
+			this.sendReplyBox('Gym Leade® <font color="purple"><b>Dvetts</b></font color><br />' +
 			'Type: Poison<br />' + 
 			'Region: Saraphia<br />' +
-			'Ace: <br />' + 
-			'<img src="">' + 
+			'Ace: Roserade<br />' + 
+			'<img src="http://cdn.bulbagarden.net/upload/4/42/407.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Kuhb, message me to add the rest of this information - Cosy');
+			'- All battles in tiershift<br />' +
+			'- No permanent weather<br />' +
+			'- Only ONE Choiced Pokemon (Can be Scarf, Specs or Band)<br />');
 		}
 		if (target === 'darny') {
 			matched = true;
