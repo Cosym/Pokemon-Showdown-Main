@@ -1650,19 +1650,6 @@ var commands = exports.commands = {
 			'- No legendaries or ubers<br />' +
 			'- Tiershift');
 		}
-		if (target === 'vale') {
-			matched = true;
-			this.sendReplyBox('Gym Leade® <font color="green"><b>Vale</b></font color><br />' +
-			'Type: Bug<br />' + 
-			'Region: Celestia<br />' +
-			'Ace: Syther and Heracross<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/8/81/123.png"><img src="http://cdn.bulbagarden.net/upload/d/d3/214.png">' + 
-			'<br /><br />Rules of Battle:<br />' + 
-			'- No Hazards<br />' +
-			'- No recovery out side of draining moves or items such as leftovers<br />' +
-			'- no more than 1 choice item<br />' +
-			'- Tiershift');
-		}
 		if (target === ''){
 			}
 		else if (!matched) {
