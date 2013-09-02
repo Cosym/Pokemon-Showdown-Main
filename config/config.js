@@ -148,6 +148,8 @@ exports.customavatars = {
 	'professolilyr' : 'lily.png',
 	'elepimp' : 'riley.png',
 	'elitecuatoriley' : 'riley.png',
+	'gymleadederp' : 'derp.png',
+	'gymtrainehalezb' : 'halezb.png',
 	'cosy' : 'cosy.png'
 	//'userid' : 'customavatar.png'
 };
