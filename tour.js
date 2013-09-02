@@ -521,6 +521,7 @@ var cmds = {
 		if (!target) return this.sendReply('Proper syntax for this command: /tourtime time');
 		target = parseInt(target);
 		if (isNaN(target)) return this.sendReply('Proper syntax for this command: /tourtime time');
+		if (target === 0) return this.sendReply('You cannot set the tour time to 0.');
 		if (target < 0) return this.sendReply('Why would you want to reschedule a tournament for the past?');
 		target = Math.ceil(target);
 		tour.timers[room.id].time = target;
@@ -992,7 +993,7 @@ var cmds = {
 		var answers = answers.join(',').toLowerCase().split(',');
 		tour[room.id].question = question;
 		tour[room.id].answerList = answers;
-		room.addRaw('<div class="infobox"><h2>' + tour[room.id].question + separacion + '<font class="closebutton" size=1><small>/vote OPTION</small></font></h2><hr />' + separacion + separacion + " &bull; " + tour[room.id].answerList.join(' &bull; ') + '</div>');
+		room.addRaw('<div class="infobox"><h2>' + tour[room.id].question + separacion + '<font size=2 color = "#939393"><small>/vote OPTION<br /><i><font size=1>Poll started by '+user.name+'</font size></i></small></font></h2><hr />' + separacion + separacion + " &bull; " + tour[room.id].answerList.join(' &bull; ') + '</div>');
 	},
 	
 	vote: function(target, room, user) {
@@ -1029,8 +1030,7 @@ var cmds = {
 			var value = sortable[i][1];
 			html += "&bull; " + option + " - " + Math.floor(value / votes * 100) + "% (" + value + ")<br />";
 		}
-		room.addRaw('<div class="infobox"><h2>Results to "' + obj.question + '"</h2><hr />' + html + '</div>');
-		tour[room.id].question = undefined;
+		room.addRaw('<div class="infobox"><h2>Results to "' + obj.question + '"<br /><i><font size=1 color = "#939393">Poll ended by '+user.name+'</font></i></h2><hr />' + html + '</div>');		tour[room.id].question = undefined;
 		tour[room.id].answerList = new Array();
 		tour[room.id].answers = new Object();
 	},
@@ -1040,7 +1040,7 @@ var cmds = {
 		var separacion = "&nbsp;&nbsp;";
 		if (!tour[room.id].question) return this.sendReply('There is currently no poll going on.');
 		if (!this.canBroadcast()) return;
-		this.sendReply('|raw|<div class="infobox"><h2>' + tour[room.id].question + separacion + '<font class="closebutton" size=1><small>/vote OPTION</small></font></h2><hr />' + separacion + separacion + " &bull; " + tour[room.id].answerList.join(' &bull; ') + '</div>');
+		this.sendReply('|raw|<div class="infobox"><h2>' + tour[room.id].question + separacion + '<font font size=1 color = "#939393"><small>/vote OPTION</small></font></h2><hr />' + separacion + separacion + " &bull; " + tour[room.id].answerList.join(' &bull; ') + '</div>');
 	}
 };
 
