@@ -139,7 +139,8 @@ exports.customavatars = {
 	'championkeikai' : 'lynn.png',
 	'gymleadedvetts' : 'dvetts.png',
 	'elitefoucatknight' : 'cats.png',
-	'gymleadeseto' : 'seto.png'
+	'gymleadeseto' : 'Seto.png'
+	'gymleadey' : 'Youft.png'
 	'cosy' : 'cosy.png'
 	//'userid' : 'customavatar.png'
 };
