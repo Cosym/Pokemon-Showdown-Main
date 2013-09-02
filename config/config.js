@@ -145,6 +145,7 @@ exports.customavatars = {
 	'gymleadebanded' : 'banded.png',
 	'frontiebalto' : 'balto.png',
 	'gymleadederp' : 'derp.png',
+	'professolilyr' : 'lily.png',
 	'cosy' : 'cosy.png'
 	//'userid' : 'customavatar.png'
 };
