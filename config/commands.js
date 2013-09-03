@@ -1325,7 +1325,8 @@ var commands = exports.commands = {
 			'Ace: Yanmega<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/6/61/469.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Maximum of one shared type<br />' +
+			'- Best two out of three<br />' +
+			'- First match OU, no set format after first match<br />' +
 			'- Nothing below Lvl. 50');
 		}
 		if (target === 'cats' || target === 'catknights') {
