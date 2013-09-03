@@ -153,6 +153,7 @@ exports.customavatars = {
 	'elitefoucaste' : 'caster.png',
 	'professotenorii' : 'tenor.png',
 	'gymleadedvetts' : 'dvetts.png',
+	'ddrake' : 'drake.png',
 	'cosy' : 'cosy.png'
 	//'userid' : 'customavatar.png'
 };
