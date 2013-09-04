@@ -138,7 +138,7 @@ exports.customavatars = {
 	'professoroxas' : 'roxas.png',
 	'championkeikai' : 'lynn.png',
 	'elitefoucatknight' : 'cats.png',
-	'gymleadeseto' : 'Seto.png',
+	'gymleadeseto' : 'clonm.png',
 	'gymleadey' : 'Youft.png',
 	'gymleadekunning' : 'kunning.png',
 	'gymleadebanded' : 'banded.png',
@@ -152,8 +152,11 @@ exports.customavatars = {
 	'elitefouemmy' : 'emmy.png',
 	'elitefoucaste' : 'caster.png',
 	'professotenorii' : 'tenor.png',
-	'gymleadedvetts' : 'dvetts.png',
+	'gymleadedvetts' : 'dvettist.png',
 	'ddrake' : 'drake.png',
+	'gymleadeesep' : 'esep.png',
+	'frontiechynn' : 'chynn.png',
+
 	'cosy' : 'cosy.png'
 	//'userid' : 'customavatar.png'
 };
