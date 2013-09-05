@@ -157,7 +157,7 @@ exports.customavatars = {
 	'gymleadeesep' : 'esep.png',
 	'frontiechynn' : 'chynn.png',
 	'theauracat' : 'cats.png'
-	'frontiebennett' : 'maviin.png',
+	'frontiebennett' : 'mavin.png',
 	'gymtrainezerotox' : 'zerotox.png',
 	'frontienareto' : 'naruto.png',
 	'cosy' : 'cosy.png'
