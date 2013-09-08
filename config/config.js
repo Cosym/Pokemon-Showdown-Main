@@ -148,7 +148,7 @@ exports.customavatars = {
 	'elepimp' : 'riley.png',
 	'elitecuatoriley' : 'riley.png',
 	'gymleadederp' : 'derp.png',
-	'gymtrainehalezb' : 'hale.png',
+	'gymtrainehalezb' : 'halezb.png',
 	'elitefouemmy' : 'emmy.png',
 	'elitefoucaste' : 'caster.png',
 	'professotenorii' : 'tenor.png',
@@ -166,6 +166,8 @@ exports.customavatars = {
 	'gymtrainepala' : 'pala.png',
 	'gymtraineperry' : 'perry.png',
 	'professoauburn' : 'auburn.png',
+	'frontiechrona' : 'chrona.png',
+	
 	'cosy' : 'cosy.png'
 	//'userid' : 'customavatar.png'
 };
