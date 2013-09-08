@@ -1256,12 +1256,12 @@ var commands = exports.commands = {
 	youtube: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Check out the Phoenix League Facebook page <a href="https://www.facebook.com/pages/Phoenix-League-PKMN-Showdown/530829486985222">here</a>!')
-	}
+	},
 	
 	twitter: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Check out the Phoenix League Twitter page <a href="https://twitter.com/PhoenixLeague1">here</a>!')
-	}
+	},
 
 	about: function(target, room, user) {
 		if (!this.canBroadcast()) return;
