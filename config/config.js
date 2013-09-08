@@ -134,7 +134,7 @@ exports.herokuhack = false;
 // Your server *must* be registered in order for your custom avatars to be
 // displayed in the client.
 exports.customavatars = {
-	'378o' : 'gk.png',
+	'thecoolkid' : 'coolkid.png',
 	'professoroxas' : 'roxas.png',
 	'championkeikai' : 'lynn.png',
 	'elitefoucatknight' : 'cats.png',
@@ -148,7 +148,7 @@ exports.customavatars = {
 	'elepimp' : 'riley.png',
 	'elitecuatoriley' : 'riley.png',
 	'gymleadederp' : 'derp.png',
-	'gymtrainehalezb' : 'halezb.png',
+	'gymtrainehalezb' : 'hale.png',
 	'elitefouemmy' : 'emmy.png',
 	'elitefoucaste' : 'caster.png',
 	'professotenorii' : 'tenor.png',
@@ -160,6 +160,10 @@ exports.customavatars = {
 	'gymtrainezerotox' : 'zerotox.png',
 	'frontienareto' : 'naruto.png',
 	'gymleadevale' : 'vale.png',
+	'gymtrainexero' : 'xero.png',
+	'gymtraineraven' : 'raven.png',
+	'gymleadegbs' : 'gbs.png',
+
 	'cosy' : 'cosy.png'
 	//'userid' : 'customavatar.png'
 };
