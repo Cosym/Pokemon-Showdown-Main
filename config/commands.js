@@ -1252,6 +1252,16 @@ var commands = exports.commands = {
 		'legendaries permitted for challenging, due to the fact that challengers are not restricted to monotype teams. Also, rules only apply to the ' +
 		'challengers. Not following these rules will end in losing badges, or disqualification.');
 	},
+	
+	youtube: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Check out the Phoenix League Facebook page <a href="https://www.facebook.com/pages/Phoenix-League-PKMN-Showdown/530829486985222">here</a>!')
+	}
+	
+	twitter: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Check out the Phoenix League Twitter page <a href="https://twitter.com/PhoenixLeague1">here</a>!')
+	}
 
 	about: function(target, room, user) {
 		if (!this.canBroadcast()) return;
