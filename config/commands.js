@@ -1253,7 +1253,7 @@ var commands = exports.commands = {
 		'challengers. Not following these rules will end in losing badges, or disqualification.');
 	},
 	
-	youtube: function(target, room, user) {
+	facebook: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Check out the Phoenix League Facebook page <a href="https://www.facebook.com/pages/Phoenix-League-PKMN-Showdown/530829486985222">here</a>!')
 	},
