@@ -1263,6 +1263,11 @@ var commands = exports.commands = {
 		this.sendReplyBox('Check out the Phoenix League Twitter page <a href="https://twitter.com/PhoenixLeague1">here</a>!')
 	},
 
+	youtube: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Check out the Phoenix League Youtube channel <a href="http://www.youtube.com/channel/UCEYCzIBot_F6q610oFg88TQ">here</a>!')
+	},
+	
 	about: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		target = target.toLowerCase();
