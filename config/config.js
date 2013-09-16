@@ -157,10 +157,9 @@ exports.customavatars = {
 	'gymleadeesep' : 'esep.png',
 	'frontiechynn' : 'chynn.png',
 	'frontiebennett' : 'mavin.png',
-	'gymtrainezerotox' : 'zerotox.png',
+	'gymtrainezerotox' : 'tox.png',
 	'frontienareto' : 'naruto.png',
 	'gymtrainevale' : 'vale.png',
-	'gymtrainexero' : 'xero.png',
 	'gymtraineraven' : 'raven.png',
 	'gymleadegbs' : 'gbs.png',
 	'gymtrainepala' : 'pala.png',
@@ -169,6 +168,8 @@ exports.customavatars = {
 	'frontiechrona' : 'chrona.png',
 	'gymleadedarny' : 'darny.png',
 	'gymtrainecarni' : 'carni.png',
+	'gymtrainetaunsion' : 'taun.png',
+	'gymtrainetiger' : 'tiger.png',
 	'cosy' : 'cosy.png'
 	//'userid' : 'customavatar.png'
 };
