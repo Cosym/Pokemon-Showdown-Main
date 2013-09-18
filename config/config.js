@@ -171,6 +171,7 @@ exports.customavatars = {
 	'gymtrainetaunsion' : 'taun.png',
 	'gymtrainetiger' : 'tiger.png',
 	'elitefoucaste' : 'caster.png',
+	'gymleadekaiser' : 'kaisersucks.png'
 	'cosy' : 'cosy.png'
 	//'userid' : 'customavatar.png'
 };
