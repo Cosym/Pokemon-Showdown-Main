@@ -163,7 +163,7 @@ exports.customavatars = {
 	'gymleadeprodigy' : 'prodigy.png',
 	'gymleadeinfamous' : 'infamous.png',
 	'gymleadejk' : 'jk.png',
-	
+	'gymleadeakahoshi' : 'aka.png',
 	'cosy' : 'cosy.png'
 	//'userid' : 'customavatar.png'
 };
