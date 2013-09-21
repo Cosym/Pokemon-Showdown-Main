@@ -161,6 +161,7 @@ exports.customavatars = {
 	'gymleadeinfamous' : 'infamous.png',
 	'gymleadejk' : 'jk.png',
 	'gymleadeakahoshi' : 'aka.png',
+	'gymtraineumbro' : 'umbro.png',
 	'cosy' : 'cosy.png'
 	//'userid' : 'customavatar.png'
 };
