@@ -135,12 +135,9 @@ exports.herokuhack = false;
 // displayed in the client.
 exports.customavatars = {
 	'thecoolkid' : 'gk.png',
-	'professoroxas' : 'roxas.png',
 	'championkeikai' : 'lynn.png',
-	'elitefoucatknight' : 'cats.png',
 	'gymleadeseto' : 'clonm.png',
 	'gymleadey' : 'Youft.png',
-	'professolilyr' : 'lily.png',
 	'elepimp' : 'riley.png',
 	'elitecuatoriley' : 'riley.png',
 	'gymtrainehalezb' : 'halezb.png',
