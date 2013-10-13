@@ -157,6 +157,7 @@ exports.customavatars = {
 	'professoruby' : 'ruby.png',
 	'gymtrainedarkjak' : 'jak.png',
 	'gymleadebarida' : 'barida.png',
+	'professomelody' : 'mel.png',
         'cosy' : 'cosy.png'
 	//'userid' : 'customavatar.png'
 };
