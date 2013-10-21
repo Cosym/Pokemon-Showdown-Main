@@ -1334,7 +1334,7 @@ var commands = exports.commands = {
 		//ELITE FOUR
 		if (target === 'ruby') {
 			matched = true;
-			this.sendReplyBox('Elite Fou® <font color="lilac"><b>Emerald</b></font color><br />' +
+			this.sendReplyBox('Elite Fou® <font color="lilac"><b>Ruby</b></font color><br />' +
 			'Type: Ice<br />' + 
 			'Region: Sinnoh<br />' +
 			'Ace: Weavile<br />' + 
@@ -1346,7 +1346,7 @@ var commands = exports.commands = {
 		}
 		if (target === 'vale') {
 			matched = true;
-			this.sendReplyBox('Elite Fou® <font color="orange"><b>Cats</b></font color><br />' +
+			this.sendReplyBox('Elite Fou® <font color="orange"><b>Vale</b></font color><br />' +
 			'Type: Bug<br />' + 
 			'Region: Sinnoh<br />' +
 			'Ace>' + 
@@ -1359,7 +1359,7 @@ var commands = exports.commands = {
 		}
 		if (target === 'lily') {
 			matched = true;
-			this.sendReplyBox('Elite Fou® <font color="Purple"><b>Riley</b></font color><br />' +
+			this.sendReplyBox('Elite Fou® <font color="Purple"><b>Lily</b></font color><br />' +
 			'Type: Poison<br />' + 
 			'Region: Saraphia<br />' +
 			'Ace: Nidoqueen<br />' + 
@@ -1372,7 +1372,7 @@ var commands = exports.commands = {
 		}
 		if (target === 'gage') {
 			matched = true;
-			this.sendReplyBox('Elite Fou® <font color="brown"><b>Caste®</b></font color><br />' +
+			this.sendReplyBox('Elite Fou® <font color="brown"><b>Gage</b></font color><br />' +
 			'Type: Flying<br />' + 
 			'Region: Unova<br />' +
 			'Ace: Omastar<br />' + 
