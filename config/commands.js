@@ -1286,10 +1286,10 @@ var commands = exports.commands = {
 			matched = true;
 			this.sendReplyBox('Elite Four and Champion:<br /><br />' +
 			'- Champion® <font color="purple"><b>Lynn</b></font color>: "The Cool Yet Elegant Psychic Master"<br />' +
-			'- Elite Fou® <font color="brown"><b>Canyon</b></font color><br />' +
-			'- Elite Fou® <font color="purple"><b>Riley</b></font color><br />' +
-			'- Elite Fou® <font color="blue"><b>Emerald</b></font color><br />' +
-			'- Elite Fou® <font color="red"><b>Cats</b></font color><br /><br />' +
+			'- Elite Fou® <font color="brown"><b>Gage</b></font color><br />' +
+			'- Elite Fou® <font color="purple"><b>Lily</b></font color><br />' +
+			'- Elite Fou® <font color="blue"><b>Ruby</b></font color><br />' +
+			'- Elite Fou® <font color="red"><b>Vale</b></font color><br /><br />' +
 			'You can view further information about the above using the /about <name> command such as /about lynn');	
 		}
 		if (target === 'professors') {
@@ -1332,24 +1332,24 @@ var commands = exports.commands = {
 			'- No Stalling');
 		}
 		//ELITE FOUR
-		if (target === 'emerald') {
+		if (target === 'Ruby') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="lilac"><b>Emerald</b></font color><br />' +
-			'Type: Flying<br />' + 
-			'Region: Celestia<br />' +
-			'Ace: Yanmega<br />' + 
+			'Type: Ice<br />' + 
+			'Region: Sinnoh<br />' +
+			'Ace: Weavile<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/6/61/469.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- Best two out of three<br />' +
 			'- First match OU, no set format after first match<br />' +
 			'- Nothing below Lvl. 50');
 		}
-		if (target === 'cats' || target === 'catknights') {
+		if (target === 'Vale') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="orange"><b>Cats</b></font color><br />' +
-			'Type: Fighting<br />' + 
-			'Region: Celestia<br />' +
-			'Ace: Breloom<br />' + 
+			'Type: Bug<br />' + 
+			'Region: Sinnoh<br />' +
+			'Ace: Scyther<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/d/d8/286.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- Monotype team and Tiershift<br />' +
@@ -1357,12 +1357,12 @@ var commands = exports.commands = {
 			'- No Ubers or Legendaries<br />' +
 			'- Best 2 out of 3');
 		}
-		if (target === 'riley') {
+		if (target === 'Lily') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="Purple"><b>Riley</b></font color><br />' +
-			'Type: Psychic<br />' + 
+			'Type: Poison<br />' + 
 			'Region: Saraphia<br />' +
-			'Ace: Wobbuffet<br />' + 
+			'Ace: Nidoqueen<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/c/c0/202.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- Tiershift<br />' +
@@ -1370,16 +1370,17 @@ var commands = exports.commands = {
 			'- No Hazards<br />' +
 			'- 1 replay with the Psychic Gym Leader required');
 		}
-		if (target === 'caster') {
+		if (target === 'Gage') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="brown"><b>Caste®</b></font color><br />' +
-			'Type: Rock<br />' + 
-			'Region: Celestia<br />' +
+			'Type: Flying<br />' + 
+			'Region: Unova<br />' +
 			'Ace: Omastar<br />' + 
 			'<img src="http://cdn.bulbagarden.net/upload/d/d1/139.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Unsportsman-like behavior is not permitted<br />' +
-			'- No weather<br />');
+			'- Tiershift<br />' +
+			'- No Hazards<br />' +
+			'- Best 2 of 3<br />');
 		}
 		//PROFESSORS
 		if (target === 'canyon') {
