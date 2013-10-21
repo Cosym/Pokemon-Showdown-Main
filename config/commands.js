@@ -1332,45 +1332,45 @@ var commands = exports.commands = {
 			'- No Stalling');
 		}
 		//ELITE FOUR
-		if (target === 'Ruby') {
+		if (target === 'ruby') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="lilac"><b>Emerald</b></font color><br />' +
 			'Type: Ice<br />' + 
 			'Region: Sinnoh<br />' +
 			'Ace: Weavile<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/6/61/469.png">' + 
+			'<img http://cdn.bulbagarden.net/upload/archive/d/d2/20091223224710%21461Weavile.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
-			'- Best two out of three<br />' +
+			'- No Hazards<br />' +
 			'- First match OU, no set format after first match<br />' +
 			'- Nothing below Lvl. 50');
 		}
-		if (target === 'Vale') {
+		if (target === 'vale') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="orange"><b>Cats</b></font color><br />' +
 			'Type: Bug<br />' + 
 			'Region: Sinnoh<br />' +
-			'Ace: Scyther<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/d/d8/286.png">' + 
+			'Ace>' + 
+			'<img http://cdn.bulbagarden.net/upload/archive/b/ba/20090819172713%21123Scyther.png">' +
 			'<br /><br />Rules of Battle:<br />' + 
 			'- Monotype team and Tiershift<br />' +
 			'- No Paraflinching<br />' +
 			'- No Ubers or Legendaries<br />' +
 			'- Best 2 out of 3');
 		}
-		if (target === 'Lily') {
+		if (target === 'lily') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="Purple"><b>Riley</b></font color><br />' +
 			'Type: Poison<br />' + 
 			'Region: Saraphia<br />' +
 			'Ace: Nidoqueen<br />' + 
-			'<img src="http://cdn.bulbagarden.net/upload/c/c0/202.png">' + 
+			'<img http://cdn.bulbagarden.net/upload/b/bf/031Nidoqueen.png">' + 
 			'<br /><br />Rules of Battle:<br />' + 
 			'- Tiershift<br />' +
 			'- No Legendaries<br />' +
 			'- No Hazards<br />' +
 			'- 1 replay with the Psychic Gym Leader required');
 		}
-		if (target === 'Gage') {
+		if (target === 'gage') {
 			matched = true;
 			this.sendReplyBox('Elite Fou® <font color="brown"><b>Caste®</b></font color><br />' +
 			'Type: Flying<br />' + 
